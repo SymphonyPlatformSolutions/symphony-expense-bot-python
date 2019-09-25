@@ -8,7 +8,9 @@
                   <tr>
                       <td>Expense Name:</td>
                       <td>Expense Date:</td>
+                      <td>Expense Description:</td>
                       <td>Expense Amount:</td>
+                      <td>Remove</td>
                   </tr>
               </thead>
               <tbody>
@@ -16,7 +18,9 @@
                 <tr>
                   <td>{{expense.expense_name}}</td>
                   <td>{{expense.expense_date}}</td>
+                  <td>{{expense.expense_description}}</td>
                   <td>{{"$%.2f"|format(expense.expense_price)}}</td>
+                  <td><button type="action" name="remove">Remove</button></td>
                 </tr>
                   {% endfor %}
               </tbody>
@@ -24,20 +28,17 @@
                   <tr>
                       <td> </td>
                       <td> </td>
+                      <td> </td>
                       <td>Total: {{"$%.2f"|format(ExpenseApprovalForm.report_total)}}</td>
+                      <td> </td>
                   </tr>
               </tfoot>
           </table>
             {% if ExpenseApprovalForm.expenses|length > 0 %}
-            <button type="action" name="add-expense-form">Add Another Expense</button>
-            <br />
-            <br />
-            <p>Assign Expense Form</p>
-            <br/>
-            <person-selector name="person-selector" placeholder="Select Your Boss" required="false"/>
-            <button type="action" name="submit-expense">Submit</button>
+            <span style="margin-left: 150px"><button type="action" name="add-expense-form">Add Expense</button>
+            <button type="action" name="approve">SEND FOR APPROVAL</button></span>
             {% else %}
-            <button type="action" name="add-expense-form">Add Expense</button>
+            <span style="margin-left: 300px"><button type="action" name="add-expense-form">ADD EXPENSE</button></span>
             {% endif %}
 
 

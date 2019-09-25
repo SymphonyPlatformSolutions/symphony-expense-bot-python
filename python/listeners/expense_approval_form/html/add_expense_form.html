@@ -1,16 +1,23 @@
 <messageML>
   <form id="add-expense-form">
     <span>
-        <h3>Add Expense for: {{ExpenseApprovalForm.person_name}}</h3>
+        <h3>Add Expense</h3>
     </span>
     <span>
-        <text-field name="add-vendor-textfield" placeholder="Enter a vender: " required="true"/>
+        <text-field name="add-vendor-textfield" placeholder="Lunch " required="true"/>
+        <text-field name="add-date-textfield" placeholder="Date " required="true"/>
         <br/>
-        <text-field name="add-date-textfield" placeholder="Enter a Date: " required="true"/>
+      <div>
+        <select name="currency" required="true">
+          <option value="dollar" selected="true">$</option>
+          <option value="euro">€</option>
+          <option value="yen">¥</option>
+        </select><text-field name="add-price-textfield" placeholder="Enter a Price: " required="true"/>
+      </div>
         <br/>
-        <text-field name="add-price-textfield" placeholder="Enter a Price: " required="true"/>
-        <br/>
-        <button type="action" name="add-expense-button">Add Expense</button>
+        <textarea name="add-description" placeholder="Expense Description" required="true"></textarea>
+        <br />
+        <span style="margin-left: 350px"><button type="action" name="add-expense-button">ADD TO LIST</button></span>
     </span>
   </form>
 </messageML>

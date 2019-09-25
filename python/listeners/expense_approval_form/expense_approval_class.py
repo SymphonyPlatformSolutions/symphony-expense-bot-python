@@ -13,11 +13,12 @@ expense_data = {
 }
 
 def upload_expense(expense):
-    for name, date, price, in expense:
+    for name, date, price, description in expense:
         expense_data['ExpenseApprovalForm']['report_total'] += price
         expense_data['ExpenseApprovalForm']['expenses'].append(dict(expense_name = name,
                                                                  expense_date = date,
-                                                                 expense_price = price))
+                                                                 expense_price = price,
+                                                                 expense_description = description))
 def remove_item(expense_index):
     print(expense_index)
     item_price = float(expense_data['ExpenseApprovalForm']['expenses'][expense_index]['expense_price'])
@@ -42,5 +43,14 @@ def render_remove_expense_form(path_to_html_form):
     html = template.render(expense_data)
     return dict(message = html)
 
-# upload_expense([('conde', 'august 22', 12.00), ('fooda', 'august 21', 10.00), ('bento', 'august 2', 12.00)])
-# print(render_expense_approval_form('./html/expense_approval_table.html'))
+def render_select_boss_form(path_to_html_form):
+    with open(path_to_html_form) as file:
+        template = Template(file.read(), trim_blocks=True, lstrip_blocks=True)
+    html = template.render(expense_data)
+    return dict(message = html)
+
+def render_select_finance_form(path_to_html_form):
+    with open(path_to_html_form) as file:
+        template = Template(file.read(), trim_blocks=True, lstrip_blocks=True)
+    html = template.render(expense_data)
+    return dict(message = html)

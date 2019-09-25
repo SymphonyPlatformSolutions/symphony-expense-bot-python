@@ -17,13 +17,15 @@ def parse_attachment(msg, bot_client):
             text = text + " " + item["Text"]
 
     entities =  comprehend.detect_entities(LanguageCode="en", Text=text)
+    print(entities)
     quantity = []
     for entity in entities["Entities"]:
         if entity.get("Type", "") == 'DATE':
             date = entity.get("Text")
         if entity.get("Type", "") == 'ORGANIZATION':
+            description = entity.get("Text")
             org = entity.get("Text")
         if entity.get("Type", "") == 'QUANTITY':
             quantity.append(float(entity.get("Text").lstrip('$')))
     total = max(quantity)
-    return [(org, date, total)]
+    return [(org, date, total, description)]
