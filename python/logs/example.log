@@ -1,19 +1,19 @@
-2019-09-25 11:05:20,202 - root - DEBUG - Auth/authenticate()
-2019-09-25 11:05:20,202 - root - DEBUG - Auth/authenticate() --> needed to authenticate
-2019-09-25 11:05:20,202 - root - DEBUG - RSA_auth/get_session_token() function started
-2019-09-25 11:05:20,202 - root - DEBUG - RSA_auth/getJWT() function started
-2019-09-25 11:05:20,383 - root - DEBUG - RSA/session token success
-2019-09-25 11:05:20,384 - root - DEBUG - RSA_auth/get_keyauth()
-2019-09-25 11:05:20,384 - root - DEBUG - RSA_auth/getJWT() function started
-2019-09-25 11:05:20,530 - root - DEBUG - RSA/keymanager token success
-2019-09-25 11:05:20,530 - root - INFO - DataFeedEventService/startDataFeed()
-2019-09-25 11:05:20,530 - root - DEBUG - DataFeedClient/create_datafeed()
-2019-09-25 11:05:21,497 - root - DEBUG - DataFeedClient/read_datafeed()
-2019-09-25 11:05:32,210 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
+2019-09-25 14:51:01,095 - root - DEBUG - Auth/authenticate()
+2019-09-25 14:51:01,095 - root - DEBUG - Auth/authenticate() --> needed to authenticate
+2019-09-25 14:51:01,095 - root - DEBUG - RSA_auth/get_session_token() function started
+2019-09-25 14:51:01,095 - root - DEBUG - RSA_auth/getJWT() function started
+2019-09-25 14:51:01,462 - root - DEBUG - RSA/session token success
+2019-09-25 14:51:01,462 - root - DEBUG - RSA_auth/get_keyauth()
+2019-09-25 14:51:01,462 - root - DEBUG - RSA_auth/getJWT() function started
+2019-09-25 14:51:01,822 - root - DEBUG - RSA/keymanager token success
+2019-09-25 14:51:01,822 - root - INFO - DataFeedEventService/startDataFeed()
+2019-09-25 14:51:01,822 - root - DEBUG - DataFeedClient/create_datafeed()
+2019-09-25 14:51:02,986 - root - DEBUG - DataFeedClient/read_datafeed()
+2019-09-25 14:51:07,214 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
     "messageSent": {
         "message": {
-            "messageId": "XpWCLcIWULgZq47Ou7SyxX___pKXC0XebQ",
-            "timestamp": 1569423931937,
+            "messageId": "lWkDgoMge_rx0eGMjyOH1X___pKWPL6ubQ",
+            "timestamp": 1569437466961,
             "message": "<div data-format=\"PresentationML\" data-version=\"2.0\" class=\"wysiwyg\"><p><span class=\"entity\" data-entity-id=\"0\">@ExpenseBot</span> create new</p></div>",
             "data": "{\"0\":{\"id\":[{\"type\":\"com.symphony.user.userId\",\"value\":\"349026222344891\"}],\"type\":\"com.symphony.user.mention\"}}",
             "user": {
@@ -34,13 +34,13 @@
         }
     }
 }
-2019-09-25 11:05:32,210 - root - DEBUG - UserClient/get_session_user()
-2019-09-25 11:05:32,348 - root - DEBUG - DataFeedEventService/handle_event()
-2019-09-25 11:05:32,349 - root - DEBUG - msg_sent_handler function started
-2019-09-25 11:05:32,349 - root - DEBUG - im_processor/process_im_message()
-2019-09-25 11:05:32,349 - root - DEBUG - {
-    "messageId": "XpWCLcIWULgZq47Ou7SyxX___pKXC0XebQ",
-    "timestamp": 1569423931937,
+2019-09-25 14:51:07,214 - root - DEBUG - UserClient/get_session_user()
+2019-09-25 14:51:07,350 - root - DEBUG - DataFeedEventService/handle_event()
+2019-09-25 14:51:07,350 - root - DEBUG - msg_sent_handler function started
+2019-09-25 14:51:07,350 - root - DEBUG - im_processor/process_im_message()
+2019-09-25 14:51:07,350 - root - DEBUG - {
+    "messageId": "lWkDgoMge_rx0eGMjyOH1X___pKWPL6ubQ",
+    "timestamp": 1569437466961,
     "message": "<div data-format=\"PresentationML\" data-version=\"2.0\" class=\"wysiwyg\"><p><span class=\"entity\" data-entity-id=\"0\">@ExpenseBot</span> create new</p></div>",
     "data": "{\"0\":{\"id\":[{\"type\":\"com.symphony.user.userId\",\"value\":\"349026222344891\"}],\"type\":\"com.symphony.user.mention\"}}",
     "user": {
@@ -59,14 +59,14 @@
     "userAgent": "DESKTOP-40.0.0-10665-MacOSX-10.14.6-Chrome-77.0.3865.90",
     "originalFormat": "com.symphony.messageml.v2"
 }
-2019-09-25 11:05:32,350 - root - DEBUG - MessageClient/send_msg()
-2019-09-25 11:05:32,967 - root - DEBUG - DataFeedClient/read_datafeed()
-2019-09-25 11:05:33,129 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
+2019-09-25 14:51:07,351 - root - DEBUG - MessageClient/send_msg()
+2019-09-25 14:51:07,893 - root - DEBUG - DataFeedClient/read_datafeed()
+2019-09-25 14:51:08,055 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
     "messageSent": {
         "message": {
-            "messageId": "ZYb8QOOsvKJJQ8yKcvWd7n___pKXC0IedA",
-            "timestamp": 1569423932903,
-            "message": "<div data-format=\"PresentationML\" data-version=\"2.0\">                                           <form id=\"form_id\">                                             <span><p>Hey <span class=\"entity\" data-entity-id=\"mention1\">@Reed Feldman (Develop 2)</span> create and fill up the report and I'll send it over!</p></span>                                             <br/>                                             <span style=\"margin-left: 300px\"><button type=\"action\" name=\"create-report\">CREATE REPORT</button></span>                                           </form>                                        </div>",
+            "messageId": "udmzZ1n-k7e2007dAG1nw3___pKWPLtLdA",
+            "timestamp": 1569437467833,
+            "message": "<div data-format=\"PresentationML\" data-version=\"2.0\">                                           <form id=\"form_id\">                                             <span><p>Hey <span class=\"entity\" data-entity-id=\"mention1\">@Reed Feldman (Develop 2)</span> create and fill up the report and I'll send it over!</p></span>                                             <br/>                                             <span style=\"margin-left:400px;margin-right:200px\"><button type=\"action\" name=\"create-report\">CREATE REPORT</button></span>                                           </form>                                        </div>",
             "data": "{\"mention1\":{\"type\":\"com.symphony.user.mention\",\"version\":\"1.0\",\"id\":[{\"type\":\"com.symphony.user.userId\",\"value\":\"349026222344902\"}]}}",
             "user": {
                 "userId": 349026222344891,
@@ -84,8 +84,8 @@
         }
     }
 }
-2019-09-25 11:05:33,129 - root - DEBUG - DataFeedClient/read_datafeed()
-2019-09-25 11:05:36,089 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
+2019-09-25 14:51:08,055 - root - DEBUG - DataFeedClient/read_datafeed()
+2019-09-25 14:51:09,674 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
     "symphonyElementsAction": {
         "actionStream": {
             "streamId": "7E0uuntjN5Tg-GnnB2mHe3___pNoxsDddA"
@@ -93,21 +93,21 @@
         "formStream": {
             "streamId": "6SXAqKRpJtyDMZ18cohsHn///pNox4htdA=="
         },
-        "formMessageId": "ZYb8QOOsvKJJQ8yKcvWd7n///pKXC0IedA==1328",
+        "formMessageId": "udmzZ1n+k7e2007dAG1nw3///pKWPLtLdA==1850",
         "formId": "form_id",
         "formValues": {
             "action": "create-report"
         }
     }
 }
-2019-09-25 11:05:36,089 - root - DEBUG - DataFeedEventService/handle_event()
-2019-09-25 11:05:36,090 - root - DEBUG - elements_action_handler
-2019-09-25 11:05:36,090 - root - DEBUG - StreamClient/stream_info_v2()
-2019-09-25 11:05:36,120 - root - DEBUG - action_processor/im_process
-2019-09-25 11:05:36,120 - root - DEBUG - {
-    "id": "NAsYCh",
-    "messageId": "eIIiKFSwHmFs-GEpMYcl_n___pKXCzfxbQ",
-    "timestamp": 1569423935502,
+2019-09-25 14:51:09,674 - root - DEBUG - DataFeedEventService/handle_event()
+2019-09-25 14:51:09,674 - root - DEBUG - elements_action_handler
+2019-09-25 14:51:09,674 - root - DEBUG - StreamClient/stream_info_v2()
+2019-09-25 14:51:09,703 - root - DEBUG - action_processor/im_process
+2019-09-25 14:51:09,703 - root - DEBUG - {
+    "id": "zsQK2B",
+    "messageId": "HTfEVIerA7PGid8TLFn583___pKWPLU4bQ",
+    "timestamp": 1569437469383,
     "type": "SYMPHONYELEMENTSACTION",
     "initiator": {
         "user": {
@@ -127,7 +127,7 @@
             "formStream": {
                 "streamId": "6SXAqKRpJtyDMZ18cohsHn///pNox4htdA=="
             },
-            "formMessageId": "ZYb8QOOsvKJJQ8yKcvWd7n///pKXC0IedA==1328",
+            "formMessageId": "udmzZ1n+k7e2007dAG1nw3///pKWPLtLdA==1850",
             "formId": "form_id",
             "formValues": {
                 "action": "create-report"
@@ -135,14 +135,14 @@
         }
     }
 }
-2019-09-25 11:05:36,129 - root - DEBUG - MessageClient/send_msg()
-2019-09-25 11:05:36,335 - root - DEBUG - DataFeedClient/read_datafeed()
-2019-09-25 11:05:36,551 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
+2019-09-25 14:51:09,712 - root - DEBUG - MessageClient/send_msg()
+2019-09-25 14:51:10,034 - root - DEBUG - DataFeedClient/read_datafeed()
+2019-09-25 14:51:10,202 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
     "messageSent": {
         "message": {
-            "messageId": "3MBlqLiQPcdvlX9Bm7HU3n___pKXCzTrdA",
-            "timestamp": 1569423936281,
-            "message": "<div data-format=\"PresentationML\" data-version=\"2.0\">     <form id=\"expense-approval-form\">       <span>           <h3></h3>       </span>           <table>               <thead>                   <tr>                       <td>Expense Name:</td>                       <td>Expense Date:</td>                       <td>Expense Description:</td>                       <td>Expense Amount:</td>                       <td>Remove</td>                   </tr>               </thead>               <tbody>               </tbody>               <tfoot>                   <tr>                       <td> </td>                       <td> </td>                       <td> </td>                       <td>Total: $0.00</td>                       <td> </td>                   </tr>               </tfoot>           </table>             <span style=\"margin-left: 300px\"><button type=\"action\" name=\"add-expense-form\">ADD EXPENSE</button></span>     </form> </div>",
+            "messageId": "8-pMUlc0fLydzm6rzZr2Kn___pKWPLNddA",
+            "timestamp": 1569437469862,
+            "message": "<div data-format=\"PresentationML\" data-version=\"2.0\">     <form id=\"expense-approval-form\">       <span>           <h3></h3>       </span>           <table>               <thead>                   <tr>                       <td>Expense Name:</td>                       <td>Expense Date:</td>                       <td>Expense Description:</td>                       <td>Expense Amount:</td>                       <td>Remove</td>                   </tr>               </thead>               <tbody>               </tbody>               <tfoot>                   <tr>                       <td> </td>                       <td> </td>                       <td> </td>                       <td>Total: $0.00</td>                       <td> </td>                   </tr>               </tfoot>           </table>             <span style=\"margin-left:300px\"><button type=\"action\" name=\"add-expense-form\">ADD EXPENSE</button></span>     </form> </div>",
             "user": {
                 "userId": 349026222344891,
                 "displayName": "ExpenseBot",
@@ -159,8 +159,8 @@
         }
     }
 }
-2019-09-25 11:05:36,551 - root - DEBUG - DataFeedClient/read_datafeed()
-2019-09-25 11:05:38,001 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
+2019-09-25 14:51:10,202 - root - DEBUG - DataFeedClient/read_datafeed()
+2019-09-25 14:51:11,476 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
     "symphonyElementsAction": {
         "actionStream": {
             "streamId": "7E0uuntjN5Tg-GnnB2mHe3___pNoxsDddA"
@@ -168,21 +168,21 @@
         "formStream": {
             "streamId": "6SXAqKRpJtyDMZ18cohsHn///pNox4htdA=="
         },
-        "formMessageId": "3MBlqLiQPcdvlX9Bm7HU3n///pKXCzTrdA==1336",
+        "formMessageId": "8+pMUlc0fLydzm6rzZr2Kn///pKWPLNddA==1858",
         "formId": "expense-approval-form",
         "formValues": {
             "action": "add-expense-form"
         }
     }
 }
-2019-09-25 11:05:38,002 - root - DEBUG - DataFeedEventService/handle_event()
-2019-09-25 11:05:38,002 - root - DEBUG - elements_action_handler
-2019-09-25 11:05:38,002 - root - DEBUG - StreamClient/stream_info_v2()
-2019-09-25 11:05:38,032 - root - DEBUG - action_processor/im_process
-2019-09-25 11:05:38,032 - root - DEBUG - {
-    "id": "zb61Ms",
-    "messageId": "60Nl6s_3Cp1HJunstyJ_pn___pKXCy7WbQ",
-    "timestamp": 1569423937833,
+2019-09-25 14:51:11,476 - root - DEBUG - DataFeedEventService/handle_event()
+2019-09-25 14:51:11,476 - root - DEBUG - elements_action_handler
+2019-09-25 14:51:11,476 - root - DEBUG - StreamClient/stream_info_v2()
+2019-09-25 14:51:11,505 - root - DEBUG - action_processor/im_process
+2019-09-25 14:51:11,505 - root - DEBUG - {
+    "id": "6qtLfy",
+    "messageId": "EIGG3qOfkHd3sCIRzhpS9H___pKWPK2ybQ",
+    "timestamp": 1569437471309,
     "type": "SYMPHONYELEMENTSACTION",
     "initiator": {
         "user": {
@@ -202,7 +202,7 @@
             "formStream": {
                 "streamId": "6SXAqKRpJtyDMZ18cohsHn///pNox4htdA=="
             },
-            "formMessageId": "3MBlqLiQPcdvlX9Bm7HU3n///pKXCzTrdA==1336",
+            "formMessageId": "8+pMUlc0fLydzm6rzZr2Kn///pKWPLNddA==1858",
             "formId": "expense-approval-form",
             "formValues": {
                 "action": "add-expense-form"
@@ -210,14 +210,14 @@
         }
     }
 }
-2019-09-25 11:05:38,034 - root - DEBUG - MessageClient/send_msg()
-2019-09-25 11:05:38,255 - root - DEBUG - DataFeedClient/read_datafeed()
-2019-09-25 11:05:38,414 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
+2019-09-25 14:51:11,507 - root - DEBUG - MessageClient/send_msg()
+2019-09-25 14:51:11,722 - root - DEBUG - DataFeedClient/read_datafeed()
+2019-09-25 14:51:11,897 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
     "messageSent": {
         "message": {
-            "messageId": "jZKUMRmalZJ3_sVNVQooRH___pKXCy1udA",
-            "timestamp": 1569423938197,
-            "message": "<div data-format=\"PresentationML\" data-version=\"2.0\">   <form id=\"add-expense-form\">     <span>         <h3>Add Expense</h3>     </span>     <span>         <input type=\"text\" name=\"add-vendor-textfield\" placeholder=\"Lunch \" required=\"true\"/>         <input type=\"text\" name=\"add-date-textfield\" placeholder=\"Date \" required=\"true\"/>         <br/>       <div>         <select name=\"currency\" required=\"true\">           <option selected=\"true\" value=\"dollar\">$</option>           <option value=\"euro\">\u20ac</option>           <option value=\"yen\">\u00a5</option>         </select><input type=\"text\" name=\"add-price-textfield\" placeholder=\"Enter a Price: \" required=\"true\"/>       </div>         <br/>         <textarea name=\"add-description\" placeholder=\"Expense Description\" required=\"true\"></textarea>         <br/>         <span style=\"margin-left: 350px\"><button type=\"action\" name=\"add-expense-button\">ADD TO LIST</button></span>     </span>   </form> </div>",
+            "messageId": "6w6Jp1t_Qkq9WeaToz6EYH___pKWPKxadA",
+            "timestamp": 1569437471662,
+            "message": "<div data-format=\"PresentationML\" data-version=\"2.0\">   <form id=\"add-expense-form\">     <span>         <h3>Add Expense</h3>     </span>     <span>         <input type=\"text\" name=\"add-vendor-textfield\" placeholder=\"Lunch \" required=\"true\"/>         <input type=\"text\" name=\"add-date-textfield\" placeholder=\"Date \" required=\"true\"/>         <br/>       <div>         <select name=\"currency\" required=\"true\">           <option selected=\"true\" value=\"dollar\">$</option>           <option value=\"euro\">\u20ac</option>           <option value=\"yen\">\u00a5</option>         </select><input type=\"text\" name=\"add-price-textfield\" placeholder=\"Enter a Price: \" required=\"true\"/>       </div>         <br/>         <textarea name=\"add-description\" placeholder=\"Expense Description\" required=\"true\"></textarea>         <br/>         <span style=\"margin-left: 450px\"><button type=\"action\" name=\"add-expense-button\">ADD TO LIST</button></span>     </span>   </form> </div>",
             "user": {
                 "userId": 349026222344891,
                 "displayName": "ExpenseBot",
@@ -234,8 +234,8 @@
         }
     }
 }
-2019-09-25 11:05:38,414 - root - DEBUG - DataFeedClient/read_datafeed()
-2019-09-25 11:05:45,388 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
+2019-09-25 14:51:11,897 - root - DEBUG - DataFeedClient/read_datafeed()
+2019-09-25 14:51:18,525 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
     "symphonyElementsAction": {
         "actionStream": {
             "streamId": "7E0uuntjN5Tg-GnnB2mHe3___pNoxsDddA"
@@ -243,26 +243,26 @@
         "formStream": {
             "streamId": "6SXAqKRpJtyDMZ18cohsHn///pNox4htdA=="
         },
-        "formMessageId": "jZKUMRmalZJ3/sVNVQooRH///pKXCy1udA==1343",
+        "formMessageId": "6w6Jp1t/Qkq9WeaToz6EYH///pKWPKxadA==1866",
         "formId": "add-expense-form",
         "formValues": {
             "action": "add-expense-button",
             "add-vendor-textfield": "asdf",
             "add-date-textfield": "asdf",
             "currency": "dollar",
-            "add-price-textfield": "12.00",
-            "add-description": "adf"
+            "add-price-textfield": "17",
+            "add-description": "dg"
         }
     }
 }
-2019-09-25 11:05:45,388 - root - DEBUG - DataFeedEventService/handle_event()
-2019-09-25 11:05:45,388 - root - DEBUG - elements_action_handler
-2019-09-25 11:05:45,388 - root - DEBUG - StreamClient/stream_info_v2()
-2019-09-25 11:05:45,420 - root - DEBUG - action_processor/im_process
-2019-09-25 11:05:45,420 - root - DEBUG - {
-    "id": "frqpZP",
-    "messageId": "u5iYnBt143KYG6057iNF1H___pKXCxIWbQ",
-    "timestamp": 1569423945193,
+2019-09-25 14:51:18,525 - root - DEBUG - DataFeedEventService/handle_event()
+2019-09-25 14:51:18,525 - root - DEBUG - elements_action_handler
+2019-09-25 14:51:18,525 - root - DEBUG - StreamClient/stream_info_v2()
+2019-09-25 14:51:18,560 - root - DEBUG - action_processor/im_process
+2019-09-25 14:51:18,560 - root - DEBUG - {
+    "id": "TpDoPJ",
+    "messageId": "n4akPhPrfFnq55r17iNIIX___pKWPJJnbQ",
+    "timestamp": 1569437478296,
     "type": "SYMPHONYELEMENTSACTION",
     "initiator": {
         "user": {
@@ -282,27 +282,27 @@
             "formStream": {
                 "streamId": "6SXAqKRpJtyDMZ18cohsHn///pNox4htdA=="
             },
-            "formMessageId": "jZKUMRmalZJ3/sVNVQooRH///pKXCy1udA==1343",
+            "formMessageId": "6w6Jp1t/Qkq9WeaToz6EYH///pKWPKxadA==1866",
             "formId": "add-expense-form",
             "formValues": {
                 "action": "add-expense-button",
                 "add-vendor-textfield": "asdf",
                 "add-date-textfield": "asdf",
                 "currency": "dollar",
-                "add-price-textfield": "12.00",
-                "add-description": "adf"
+                "add-price-textfield": "17",
+                "add-description": "dg"
             }
         }
     }
 }
-2019-09-25 11:05:45,426 - root - DEBUG - MessageClient/send_msg()
-2019-09-25 11:05:45,697 - root - DEBUG - DataFeedClient/read_datafeed()
-2019-09-25 11:05:45,867 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
+2019-09-25 14:51:18,565 - root - DEBUG - MessageClient/send_msg()
+2019-09-25 14:51:18,819 - root - DEBUG - DataFeedClient/read_datafeed()
+2019-09-25 14:51:19,251 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
     "messageSent": {
         "message": {
-            "messageId": "OH26POs9MT9My7x0unbv0H___pKXCxCWdA",
-            "timestamp": 1569423945582,
-            "message": "<div data-format=\"PresentationML\" data-version=\"2.0\">     <form id=\"expense-approval-form\">       <span>           <h3></h3>       </span>           <table>               <thead>                   <tr>                       <td>Expense Name:</td>                       <td>Expense Date:</td>                       <td>Expense Description:</td>                       <td>Expense Amount:</td>                       <td>Remove</td>                   </tr>               </thead>               <tbody>                 <tr>                   <td>asdf</td>                   <td>asdf</td>                   <td>adf</td>                   <td>$12.00</td>                   <td><button type=\"action\" name=\"remove\">Remove</button></td>                 </tr>               </tbody>               <tfoot>                   <tr>                       <td> </td>                       <td> </td>                       <td> </td>                       <td>Total: $12.00</td>                       <td> </td>                   </tr>               </tfoot>           </table>             <span style=\"margin-left: 150px\"><button type=\"action\" name=\"add-expense-form\">Add Expense</button>             <button type=\"action\" name=\"approve\">SEND FOR APPROVAL</button></span>     </form> </div>",
+            "messageId": "rDV3db6N_zAiHRwfjdsfGX___pKWPJDPdA",
+            "timestamp": 1569437478709,
+            "message": "<div data-format=\"PresentationML\" data-version=\"2.0\">     <form id=\"expense-approval-form\">       <span>           <h3></h3>       </span>           <table>               <thead>                   <tr>                       <td>Expense Name:</td>                       <td>Expense Date:</td>                       <td>Expense Description:</td>                       <td>Expense Amount:</td>                       <td>Remove</td>                   </tr>               </thead>               <tbody>                 <tr>                   <td>asdf</td>                   <td>asdf</td>                   <td>dg</td>                   <td>$17.00</td>                   <td><button type=\"action\" name=\"remove\">Remove</button></td>                 </tr>               </tbody>               <tfoot>                   <tr>                       <td> </td>                       <td> </td>                       <td> </td>                       <td>Total: $17.00</td>                       <td> </td>                   </tr>               </tfoot>           </table>             <span style=\"margin-left:300px\"><button type=\"action\" name=\"add-expense-form\">ADD EXPENSE</button>             <button type=\"action\" name=\"approve\">SEND FOR APPROVAL</button></span>     </form> </div>",
             "user": {
                 "userId": 349026222344891,
                 "displayName": "ExpenseBot",
@@ -319,8 +319,8 @@
         }
     }
 }
-2019-09-25 11:05:45,867 - root - DEBUG - DataFeedClient/read_datafeed()
-2019-09-25 11:05:51,942 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
+2019-09-25 14:51:19,251 - root - DEBUG - DataFeedClient/read_datafeed()
+2019-09-25 14:51:27,027 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
     "symphonyElementsAction": {
         "actionStream": {
             "streamId": "7E0uuntjN5Tg-GnnB2mHe3___pNoxsDddA"
@@ -328,21 +328,21 @@
         "formStream": {
             "streamId": "6SXAqKRpJtyDMZ18cohsHn///pNox4htdA=="
         },
-        "formMessageId": "OH26POs9MT9My7x0unbv0H///pKXCxCWdA==1350",
+        "formMessageId": "rDV3db6N/zAiHRwfjdsfGX///pKWPJDPdA==1873",
         "formId": "expense-approval-form",
         "formValues": {
             "action": "approve"
         }
     }
 }
-2019-09-25 11:05:51,943 - root - DEBUG - DataFeedEventService/handle_event()
-2019-09-25 11:05:51,943 - root - DEBUG - elements_action_handler
-2019-09-25 11:05:51,943 - root - DEBUG - StreamClient/stream_info_v2()
-2019-09-25 11:05:51,973 - root - DEBUG - action_processor/im_process
-2019-09-25 11:05:51,973 - root - DEBUG - {
-    "id": "LZyiHh",
-    "messageId": "zDvs0BTa_eY3KkjDQzQ6Nn___pKXCviabQ",
-    "timestamp": 1569423951717,
+2019-09-25 14:51:27,029 - root - DEBUG - DataFeedEventService/handle_event()
+2019-09-25 14:51:27,029 - root - DEBUG - elements_action_handler
+2019-09-25 14:51:27,029 - root - DEBUG - StreamClient/stream_info_v2()
+2019-09-25 14:51:27,059 - root - DEBUG - action_processor/im_process
+2019-09-25 14:51:27,059 - root - DEBUG - {
+    "id": "HLmabK",
+    "messageId": "HezGvYpVIH0GbXvRR-Mjn3___pKWPHFKbQ",
+    "timestamp": 1569437486773,
     "type": "SYMPHONYELEMENTSACTION",
     "initiator": {
         "user": {
@@ -362,7 +362,7 @@
             "formStream": {
                 "streamId": "6SXAqKRpJtyDMZ18cohsHn///pNox4htdA=="
             },
-            "formMessageId": "OH26POs9MT9My7x0unbv0H///pKXCxCWdA==1350",
+            "formMessageId": "rDV3db6N/zAiHRwfjdsfGX///pKWPJDPdA==1873",
             "formId": "expense-approval-form",
             "formValues": {
                 "action": "approve"
@@ -370,14 +370,14 @@
         }
     }
 }
-2019-09-25 11:05:51,973 - root - DEBUG - MessageClient/send_msg()
-2019-09-25 11:05:52,252 - root - DEBUG - MessageClient/send_msg()
-2019-09-25 11:05:52,460 - root - DEBUG - DataFeedClient/read_datafeed()
-2019-09-25 11:05:52,620 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
+2019-09-25 14:51:27,059 - root - DEBUG - MessageClient/send_msg()
+2019-09-25 14:51:27,335 - root - DEBUG - MessageClient/send_msg()
+2019-09-25 14:51:27,564 - root - DEBUG - DataFeedClient/read_datafeed()
+2019-09-25 14:51:27,812 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
     "messageSent": {
         "message": {
-            "messageId": "V79xkU5i5kZnekvlX0v_W3___pKXCvcGdA",
-            "timestamp": 1569423952126,
+            "messageId": "zvVyJG0sSFHMpgk8UqS6ln___pKWPG-gdA",
+            "timestamp": 1569437487204,
             "message": "<div data-format=\"PresentationML\" data-version=\"2.0\">Please select your manager and I will send them your expense report</div>",
             "user": {
                 "userId": 349026222344891,
@@ -395,249 +395,4 @@
         }
     }
 }
-2019-09-25 11:05:52,620 - root - DEBUG - DataFeedClient/read_datafeed()
-2019-09-25 11:06:06,586 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
-    "symphonyElementsAction": {
-        "actionStream": {
-            "streamId": "7E0uuntjN5Tg-GnnB2mHe3___pNoxsDddA"
-        },
-        "formStream": {
-            "streamId": "6SXAqKRpJtyDMZ18cohsHn///pNox4htdA=="
-        },
-        "formMessageId": "hPTad6/GeQBVI4ILCTYi8X///pKXCvXtdA==1360",
-        "formId": "select-boss",
-        "formValues": {
-            "action": "send-report",
-            "person-selector": [
-                349026222348166
-            ]
-        }
-    }
-}
-2019-09-25 11:06:06,586 - root - DEBUG - DataFeedEventService/handle_event()
-2019-09-25 11:06:06,586 - root - DEBUG - elements_action_handler
-2019-09-25 11:06:06,586 - root - DEBUG - StreamClient/stream_info_v2()
-2019-09-25 11:06:06,616 - root - DEBUG - action_processor/im_process
-2019-09-25 11:06:06,616 - root - DEBUG - {
-    "id": "RFpnXC",
-    "messageId": "8nxOhd7gjvqpIOE8XWpx9X___pKXCr9DbQ",
-    "timestamp": 1569423966396,
-    "type": "SYMPHONYELEMENTSACTION",
-    "initiator": {
-        "user": {
-            "userId": 349026222344902,
-            "firstName": "Reed",
-            "lastName": "Feldman",
-            "displayName": "Reed Feldman (Develop 2)",
-            "email": "reed.feldman@symphony.com",
-            "username": "reed.feldman@symphony.com"
-        }
-    },
-    "payload": {
-        "symphonyElementsAction": {
-            "actionStream": {
-                "streamId": "7E0uuntjN5Tg-GnnB2mHe3___pNoxsDddA"
-            },
-            "formStream": {
-                "streamId": "6SXAqKRpJtyDMZ18cohsHn///pNox4htdA=="
-            },
-            "formMessageId": "hPTad6/GeQBVI4ILCTYi8X///pKXCvXtdA==1360",
-            "formId": "select-boss",
-            "formValues": {
-                "action": "send-report",
-                "person-selector": [
-                    349026222348166
-                ]
-            }
-        }
-    }
-}
-2019-09-25 11:06:06,616 - root - DEBUG - UserClient/get_user_from_id()
-2019-09-25 11:06:06,646 - root - DEBUG - MessageClient/send_msg()
-2019-09-25 11:06:06,849 - root - DEBUG - StreamClient/create_im()
-2019-09-25 11:06:06,884 - root - DEBUG - MessageClient/send_msg()
-2019-09-25 11:06:07,310 - root - DEBUG - MessageClient/send_msg()
-2019-09-25 11:06:07,613 - root - DEBUG - MessageClient/send_msg()
-2019-09-25 11:06:07,819 - root - DEBUG - DataFeedClient/read_datafeed()
-2019-09-25 11:06:08,028 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
-    "messageSent": {
-        "message": {
-            "messageId": "fpFfUrXC9cvuaYuX1JxBfn___pKXCr21dA",
-            "timestamp": 1569423966800,
-            "message": "<div data-format=\"PresentationML\" data-version=\"2.0\">Your expense has been submitted to expenseManager I will inform you when your manager answers</div>",
-            "user": {
-                "userId": 349026222344891,
-                "displayName": "ExpenseBot",
-                "email": "karlPythonDemo@demo.com",
-                "username": "karlPythonDemo"
-            },
-            "stream": {
-                "streamId": "6SXAqKRpJtyDMZ18cohsHn___pNox4htdA",
-                "streamType": "IM"
-            },
-            "externalRecipients": false,
-            "userAgent": "Agent-2.55.9-Linux-4.14.123-86.109.amzn1.x86_64",
-            "originalFormat": "com.symphony.messageml.v2"
-        }
-    }
-}
-2019-09-25 11:06:08,029 - root - DEBUG - DataFeedClient/read_datafeed()
-2019-09-25 11:06:09,542 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
-    "symphonyElementsAction": {
-        "actionStream": {
-            "streamId": "Zocfr-gWcDlf1TXtQti0Dn___pMHBQLBdA"
-        },
-        "formStream": {
-            "streamId": "BgNuWo3atoMjQyiFOf3Wv3///pMHCs+bdA=="
-        },
-        "formMessageId": "W9eVRZwv47oxcj38BW2zJn///pKXCrnndA==623",
-        "formId": "expense-approval-form",
-        "formValues": {
-            "action": "approve-expense"
-        }
-    }
-}
-2019-09-25 11:06:09,542 - root - DEBUG - DataFeedEventService/handle_event()
-2019-09-25 11:06:09,542 - root - DEBUG - elements_action_handler
-2019-09-25 11:06:09,542 - root - DEBUG - StreamClient/stream_info_v2()
-2019-09-25 11:06:09,573 - root - DEBUG - action_processor/im_process
-2019-09-25 11:06:09,573 - root - DEBUG - {
-    "id": "ZvLpqA",
-    "messageId": "FYgPRAlM5V6FZ_Ovd5dG23___pKXCrPsbQ",
-    "timestamp": 1569423969299,
-    "type": "SYMPHONYELEMENTSACTION",
-    "initiator": {
-        "user": {
-            "userId": 349026222348166,
-            "firstName": "Expense",
-            "lastName": "Manager",
-            "displayName": "expenseManager",
-            "email": "expenseManager@symphony.com",
-            "username": "expenseManager"
-        }
-    },
-    "payload": {
-        "symphonyElementsAction": {
-            "actionStream": {
-                "streamId": "Zocfr-gWcDlf1TXtQti0Dn___pMHBQLBdA"
-            },
-            "formStream": {
-                "streamId": "BgNuWo3atoMjQyiFOf3Wv3///pMHCs+bdA=="
-            },
-            "formMessageId": "W9eVRZwv47oxcj38BW2zJn///pKXCrnndA==623",
-            "formId": "expense-approval-form",
-            "formValues": {
-                "action": "approve-expense"
-            }
-        }
-    }
-}
-2019-09-25 11:06:09,573 - root - DEBUG - MessageClient/send_msg()
-2019-09-25 11:06:09,772 - root - DEBUG - MessageClient/send_msg()
-2019-09-25 11:06:10,018 - root - DEBUG - DataFeedClient/read_datafeed()
-2019-09-25 11:06:10,335 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
-    "messageSent": {
-        "message": {
-            "messageId": "jaUVXhGEo4ZVs7xnKkucxH___pKXCrJJdA",
-            "timestamp": 1569423969722,
-            "message": "<div data-format=\"PresentationML\" data-version=\"2.0\">Now I need to know who is the finance responsible for the report and reimbursement.</div>",
-            "user": {
-                "userId": 349026222344891,
-                "displayName": "ExpenseBot",
-                "email": "karlPythonDemo@demo.com",
-                "username": "karlPythonDemo"
-            },
-            "stream": {
-                "streamId": "BgNuWo3atoMjQyiFOf3Wv3___pMHCs-bdA",
-                "streamType": "IM"
-            },
-            "externalRecipients": false,
-            "userAgent": "Agent-2.55.9-Linux-4.14.123-86.109.amzn1.x86_64",
-            "originalFormat": "com.symphony.messageml.v2"
-        }
-    }
-}
-2019-09-25 11:06:10,336 - root - DEBUG - DataFeedClient/read_datafeed()
-2019-09-25 11:06:18,463 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
-    "symphonyElementsAction": {
-        "actionStream": {
-            "streamId": "Zocfr-gWcDlf1TXtQti0Dn___pMHBQLBdA"
-        },
-        "formStream": {
-            "streamId": "BgNuWo3atoMjQyiFOf3Wv3///pMHCs+bdA=="
-        },
-        "formMessageId": "471Z/5IxjRVMlZrWKbJKqH///pKXCrFSdA==633",
-        "formId": "select-boss",
-        "formValues": {
-            "action": "send-finance",
-            "person-selector": [
-                349026222348274
-            ]
-        }
-    }
-}
-2019-09-25 11:06:18,463 - root - DEBUG - DataFeedEventService/handle_event()
-2019-09-25 11:06:18,464 - root - DEBUG - elements_action_handler
-2019-09-25 11:06:18,464 - root - DEBUG - StreamClient/stream_info_v2()
-2019-09-25 11:06:18,494 - root - DEBUG - action_processor/im_process
-2019-09-25 11:06:18,494 - root - DEBUG - {
-    "id": "lZO01a",
-    "messageId": "7L7L6gVJtQRw_cMjsOP-bX___pKXCpDRbQ",
-    "timestamp": 1569423978286,
-    "type": "SYMPHONYELEMENTSACTION",
-    "initiator": {
-        "user": {
-            "userId": 349026222348166,
-            "firstName": "Expense",
-            "lastName": "Manager",
-            "displayName": "expenseManager",
-            "email": "expenseManager@symphony.com",
-            "username": "expenseManager"
-        }
-    },
-    "payload": {
-        "symphonyElementsAction": {
-            "actionStream": {
-                "streamId": "Zocfr-gWcDlf1TXtQti0Dn___pMHBQLBdA"
-            },
-            "formStream": {
-                "streamId": "BgNuWo3atoMjQyiFOf3Wv3///pMHCs+bdA=="
-            },
-            "formMessageId": "471Z/5IxjRVMlZrWKbJKqH///pKXCrFSdA==633",
-            "formId": "select-boss",
-            "formValues": {
-                "action": "send-finance",
-                "person-selector": [
-                    349026222348274
-                ]
-            }
-        }
-    }
-}
-2019-09-25 11:06:18,495 - root - DEBUG - MessageClient/send_msg()
-2019-09-25 11:06:18,768 - root - DEBUG - MessageClient/send_msg()
-2019-09-25 11:06:19,075 - root - DEBUG - DataFeedClient/read_datafeed()
-2019-09-25 11:06:19,247 - root - DEBUG - DataFeedEventService/read_datafeed() --> Incoming data from read_datafeed(): {
-    "messageSent": {
-        "message": {
-            "messageId": "4BA2YfirOV5NFfGND8NZxX___pKXCo9IdA",
-            "timestamp": 1569423978685,
-            "message": "<div data-format=\"PresentationML\" data-version=\"2.0\">                                                         <span><p>Thanks, I'll share this with <span class=\"entity\" data-entity-id=\"mention1\">@finance manager</span>, and send your answer to <span class=\"entity\" data-entity-id=\"mention2\">@Reed Feldman (Develop 2)</span> </p></span>                                                    </div>",
-            "data": "{\"mention1\":{\"type\":\"com.symphony.user.mention\",\"version\":\"1.0\",\"id\":[{\"type\":\"com.symphony.user.userId\",\"value\":\"349026222348274\"}]},\"mention2\":{\"type\":\"com.symphony.user.mention\",\"version\":\"1.0\",\"id\":[{\"type\":\"com.symphony.user.userId\",\"value\":\"349026222344902\"}]}}",
-            "user": {
-                "userId": 349026222344891,
-                "displayName": "ExpenseBot",
-                "email": "karlPythonDemo@demo.com",
-                "username": "karlPythonDemo"
-            },
-            "stream": {
-                "streamId": "BgNuWo3atoMjQyiFOf3Wv3___pMHCs-bdA",
-                "streamType": "IM"
-            },
-            "externalRecipients": false,
-            "userAgent": "Agent-2.55.9-Linux-4.14.123-86.109.amzn1.x86_64",
-            "originalFormat": "com.symphony.messageml.v2"
-        }
-    }
-}
-2019-09-25 11:06:19,247 - root - DEBUG - DataFeedClient/read_datafeed()
+2019-09-25 14:51:27,812 - root - DEBUG - DataFeedClient/read_datafeed()
