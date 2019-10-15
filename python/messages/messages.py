@@ -1,4 +1,5 @@
 from sym_api_client_python.processors.message_formatter import MessageFormatter
+
 bot_id = "349026222344902"
 reply_message = dict(message = """<messageML>
                                             <span><p>Hey <mention uid="{0}"/> start your expense report by clicking the button below or mention me and upload the receipt image.</p></span>
@@ -31,3 +32,4 @@ manager_submit_message = MessageFormatter().format_message('Now I need to know w
 start_report_message = MessageFormatter().format_message('Create and fill up the report then I will send it over!')
 choose_boss_message = MessageFormatter().format_message('Please select your manager and I will send them your expense report')
 review_message = MessageFormatter().format_message('Here is the expense report, please review and send your response.')
+room_message = MessageFormatter().format_message('You can only interact with a bot inside an IM, please open an IM chat with me!')
