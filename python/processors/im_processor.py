@@ -24,6 +24,7 @@ class IMProcessor:
 
         if mentioned_users:
             if mentioned_users[0] == self.bot_id and commands[0] == 'help':
+                print('ok')
                 self.bot_client.get_message_client().send_msg(msg['stream']['streamId'], help_message)
 
             if mentioned_users[0] == self.bot_id and commands[0] == 'clear':
