@@ -3,21 +3,17 @@
     <span>
         <h3>Add Expense</h3>
     </span>
-    <span>
+    <div style='padding-top:1px;padding-left:5px;'>
         <text-field name="add-vendor-textfield" placeholder="Lunch " required="true"/>
         <text-field name="add-date-textfield" placeholder="Date " required="true"/>
+        <text-field name="add-price-textfield" placeholder="$ " required="true"/>
         <br/>
-      <div>
-        <select name="currency" required="true">
-          <option value="dollar" selected="true">$</option>
-          <option value="euro">€</option>
-          <option value="yen">¥</option>
-        </select><text-field name="add-price-textfield" placeholder="Enter a Price: " required="true"/>
-      </div>
-        <br/>
-        <textarea name="add-description" placeholder="Expense Description" required="true"></textarea>
-        <br />
-        <span style="margin-left: 450px"><button type="action" name="add-expense-button">ADD TO LIST</button></span>
-    </span>
+    </div>
+    <br/>
+    <textarea name="add-description" placeholder="Expense Description" required="true"></textarea>
+    <br />
+    <div style='padding-top:1px;padding-left:5px;'>
+      <button type="action" name="add-expense-button">ADD TO LIST</button>
+    </div>
   </form>
 </messageML>

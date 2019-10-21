@@ -23,10 +23,6 @@ class IMProcessor:
         commands = self.sym_message_parser.get_text(msg)
 
         if mentioned_users:
-            if mentioned_users[0] == self.bot_id and commands[0] == 'help':
-                print('ok')
-                self.bot_client.get_message_client().send_msg(msg['stream']['streamId'], help_message)
-
             if mentioned_users[0] == self.bot_id and commands[0] == 'clear':
                 self.bot_client.get_message_client().send_msg(msg['stream']['streamId'], clear_message)
 
@@ -34,7 +30,6 @@ class IMProcessor:
                 self.bot_client.get_message_client().send_msg(msg['stream']['streamId'], reply_message)
 
             elif mentioned_users[0] == self.bot_id and commands[0] == 'upload' and commands[1] == 'receipt':
-                print(parse_attachment(msg, self.bot_client))
                 upload_expense(parse_attachment(msg, self.bot_client))
                 self.bot_client.get_message_client().send_msg(msg['stream']['streamId'], render_expense_approval_form('listeners/expense_approval_form/html/create_expense_approval_form.html'))
             else:

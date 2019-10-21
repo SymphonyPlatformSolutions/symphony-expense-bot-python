@@ -10,10 +10,11 @@ finance_approval_message = dict(message = """<messageML>
                                        </messageML>""".format(bot_id))
 
 help_message = dict(message = """<messageML>
-                            <h3>Use ExpenseBot to create, update, and submit an expense form using Symphony Elements</h3>
-                            <p>Type @ExpenseBot <b>'create new expense'</b> to create an expense approval form</p>
-                            <p>In order to assign your expense approval form to your manager, you must first add an expense</p>
-                                      </messageML>
+                                    <h3>Use ExpenseBot to create, update, and submit an expense form using Symphony Elements</h3>
+                                    <ul>
+                                        <li>'@ExpenseBot create new expense'</li>
+                                    </ul>
+                                </messageML>
                     """)
 
 clear_message = dict(message = """<messageML>
@@ -24,7 +25,9 @@ reply_message = dict(message = """<messageML>
                                           <form id="form_id">
                                             <span><p>Hey <mention uid="{0}"/> create and fill up the report and I'll send it over!</p></span>
                                             <br />
-                                            <span style="margin-left:400px;margin-right:200px"><button name="create-report" type="action">CREATE REPORT</button></span>
+                                            <div style='padding-top:1px;padding-left:5px;'>
+                                                <button name="create-report" type="action">CREATE REPORT</button>
+                                            </div>
                                           </form>
                                        </messageML>""".format(bot_id))
 
@@ -33,3 +36,4 @@ start_report_message = MessageFormatter().format_message('Create and fill up the
 choose_boss_message = MessageFormatter().format_message('Please select your manager and I will send them your expense report')
 review_message = MessageFormatter().format_message('Here is the expense report, please review and send your response.')
 room_message = MessageFormatter().format_message('You can only interact with a bot inside an IM, please open an IM chat with me!')
+reject_message = MessageFormatter().format_message('Expenses Rejected, contact your manager')
