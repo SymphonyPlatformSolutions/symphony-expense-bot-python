@@ -1,5 +1,7 @@
 import jinja2
 from jinja2 import Template
+from sym_api_client_python.processors.message_formatter import MessageFormatter
+from sym_api_client_python.processors.sym_elements_parser import SymElementsParser
 
 expense_data = {
     "ExpenseApprovalForm": {
@@ -12,16 +14,21 @@ expense_data = {
     }
 }
 
-def upload_expense(expense):
+def upload_expense(bot_client, action, expense):
     for name, date, price, description in expense:
-        expense_data['ExpenseApprovalForm']['report_total'] += price
-        expense_data['ExpenseApprovalForm']['expenses'].append(dict(expense_name = name,
-                                                                 expense_date = date,
-                                                                 expense_price = price,
-                                                                 expense_description = description))
+        try:
+            expense_data['ExpenseApprovalForm']['report_total'] += float(price)
+            expense_data['ExpenseApprovalForm']['expenses'].append(dict(expense_name = name,
+                                                                     expense_date = date,
+                                                                     expense_price = float(price),
+                                                                     expense_description = description))
+        except ValueError:
+            print('retry with price as a number')
+            bot_client.get_message_client().send_msg(SymElementsParser().get_stream_id(action), MessageFormatter().format_message('submit valid price format'))
 def remove_item(expense_index):
     print(expense_index)
     item_price = float(expense_data['ExpenseApprovalForm']['expenses'][expense_index]['expense_price'])
+    print(item_price)
     expense_data['ExpenseApprovalForm']['report_total'] -= item_price
     del expense_data['ExpenseApprovalForm']['expenses'][expense_index]
 
