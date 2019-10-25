@@ -1,8 +1,6 @@
 <messageML>
     <form id="expense-approval-form">
-      <span>
-          <h3>{{ExpenseApprovalForm.person_name}}</h3>
-      </span>
+      {% if ExpenseApprovalForm.expenses|length > 0 %}
           <table>
               <thead>
                   <tr>
@@ -34,6 +32,7 @@
                   </tr>
               </tfoot>
           </table>
+        {% endif %}
             {% if ExpenseApprovalForm.expenses|length > 0 %}
             <div style='padding-top:1px;padding-left:5px;'><button type="action" name="add-expense-form">ADD EXPENSE</button>
             <button type="action" name="approve">SEND FOR APPROVAL</button></div>
