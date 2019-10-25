@@ -21,7 +21,7 @@ clear_message = dict(message = """<messageML>
                                         <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
                                       </messageML>""")
 
-reply_message = dict(message = """<messageML>
+create_message = dict(message = """<messageML>
                                           <form id="form_id">
                                             <span><p>Hey <mention uid="{0}"/> create and fill up the report and I'll send it over!</p></span>
                                             <br />
