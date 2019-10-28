@@ -3,7 +3,7 @@ import json
 from sym_api_client_python.processors.message_formatter import MessageFormatter
 from sym_api_client_python.processors.sym_elements_parser import SymElementsParser
 from listeners.expense_approval_form.expense_approval_class import render_expense_approval_form, render_add_expense_form, render_remove_expense_form, save_expense, remove_item, render_select_boss_form, render_select_finance_form, ExpenseReport
-from messages.messages import reply_message, manager_submit_message, start_report_message, choose_boss_message, review_message, finance_approval_message, reject_message
+from messages.messages import manager_submit_message, start_report_message, choose_boss_message, review_message, finance_approval_message, reject_message
 
 class ActionProcessor:
 
@@ -14,7 +14,7 @@ class ActionProcessor:
         logging.debug('action_processor/im_process')
         logging.debug(json.dumps(action, indent=4))
         if SymElementsParser().get_form_values(action)['action'] == 'create-report':
-            self.bot_client.get_message_client().send_msg(SymElementsParser().get_stream_id(action), render_add_expense_form(action, 'listeners/expense_approval_form/html/create_expense_approval_form.html'))
+            self.bot_client.get_message_client().send_msg(SymElementsParser().get_stream_id(action), render_expense_approval_form(action, 'listeners/expense_approval_form/html/create_expense_approval_form.html'))
 
         elif SymElementsParser().get_form_values(action)['action'] == 'add-expense-form':
             self.bot_client.get_message_client().send_msg(SymElementsParser().get_stream_id(action), render_add_expense_form(action, 'listeners/expense_approval_form/html/add_expense_form.html'))
@@ -56,7 +56,6 @@ class ActionProcessor:
             self.bot_client.get_message_client().send_msg(self.manager_stream, manager_submit_message)
             self.bot_client.get_message_client().send_msg(SymElementsParser().get_stream_id(action), render_select_finance_form('listeners/expense_approval_form/html/select_finance.html'))
 
-            #query the database and set open=False, find the userID of employee not manager
             expense = ExpenseReport.objects(open=True, owner=str(user_id), manager=str(self.manager_id[0]))[0]
             print(expense.to_json())
             expense.open=False
@@ -73,8 +72,9 @@ class ActionProcessor:
             self.bot_client.get_message_client().send_msg(self.employee_stream, finance_approval_message)
 
         elif SymElementsParser().get_form_values(action)['action'].startswith('remove'):
-            expense_number = int(SymElementsParser().get_form_values(action)['action'][-1])
-            remove_item(expense_number)
+            expense_name = SymElementsParser().get_form_values(action)['action'].split()[-1]
+            expense_price = float(SymElementsParser().get_form_values(action)['action'].split()[1])
+            remove_item(action, expense_name, expense_price)
             self.bot_client.get_message_client().send_msg(SymElementsParser().get_stream_id(action), render_expense_approval_form(action, 'listeners/expense_approval_form/html/create_expense_approval_form.html'))
 
         elif SymElementsParser().get_form_values(action)['action'] == 'reject-expense':

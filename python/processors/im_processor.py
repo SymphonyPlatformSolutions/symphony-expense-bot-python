@@ -3,10 +3,10 @@ import logging
 import json
 from sym_api_client_python.processors.message_formatter import MessageFormatter
 from sym_api_client_python.processors.sym_message_parser import SymMessageParser
-from listeners.expense_approval_form.expense_approval_class import ExpenseReport, render_expense_approval_form, remove_item
+from listeners.expense_approval_form.expense_approval_class import render_expense_approval_form, render_expense_approval_from_message, render_add_expense_form, render_remove_expense_form, save_expense, save_image, remove_item, render_select_boss_form, render_select_finance_form, ExpenseReport
 from .img_processor import parse_attachment
 from .data_service_processor import DataService
-from messages.messages import help_message, clear_message, create_message
+from messages.messages import help_message, clear_message, create_message, end_message, instruction_message
 
 class IMProcessor:
     def __init__(self, bot_client):
@@ -18,7 +18,7 @@ class IMProcessor:
     def user_has_active_expense(self, streamId, userObj):
         print(userObj['userId'])
         if self.data_service.has_active_expense_report(userObj['userId']):
-            self.bot_client.get_message_client().send_msg(streamId, MessageFormatter().format_message('you already have an active expense report, type "@expenseBot end" before starting a new one'))
+            self.bot_client.get_message_client().send_msg(streamId, end_message)
             return True
         else:
             return False
@@ -30,8 +30,6 @@ class IMProcessor:
             logging.debug('new expense report requested by {}'.format(userObj['displayName']))
             self.bot_client.get_message_client().send_msg(streamId, create_message)
 
-    #reads message and processes it
-    #look inside logs/example.log to see the payload (metadata representing event coming over the datafeed)
     def process(self, msg):
         logging.debug('im_processor/process_im_message()')
         logging.debug(json.dumps(msg, indent=4))
@@ -44,18 +42,20 @@ class IMProcessor:
             if mentioned_users[0] == self.bot_id and commands[0] == 'clear':
                 self.bot_client.get_message_client().send_msg(msg['stream']['streamId'], clear_message)
 
-            elif mentioned_users[0] == self.bot_id and commands[0] == 'create' and commands[1] == 'new':
+            elif mentioned_users[0] == self.bot_id and commands[0] == 'create':
                 self.handle_create_expense(msg['stream']['streamId'], msg['user'])
 
-            # elif mentioned_users[0] == self.bot_id and commands[0] == 'upload' and commands[1] == 'receipt':
-            #     upload_expense(parse_attachment(msg, self.bot_client))
-            #     self.bot_client.get_message_client().send_msg(msg['stream']['streamId'], render_expense_approval_form('listeners/expense_approval_form/html/create_expense_approval_form.html'))
+            elif mentioned_users[0] == self.bot_id and commands[0] == 'upload' and commands[1] == 'receipt':
+                img_data = parse_attachment(msg, self.bot_client)
+                print(userId)
+                print(img_data)
+                save_image(self.bot_client, userId, img_data)
+                self.bot_client.get_message_client().send_msg(msg['stream']['streamId'], render_expense_approval_from_message(userId, 'listeners/expense_approval_form/html/create_expense_approval_form.html'))
 
             elif mentioned_users[0] == self.bot_id and commands[0] == 'end':
-                #query database and delete report
                 expenses = ExpenseReport.objects(owner=str(userId))
                 expenses.delete()
-                self.bot_client.get_message_client().send_msg(msg['stream']['streamId'], MessageFormatter().format_message('type @ExpenseBot create new'))
+                self.bot_client.get_message_client().send_msg(msg['stream']['streamId'], instruction_message)
 
             else:
                 self.bot_client.get_message_client().send_msg(msg['stream']['streamId'], help_message)

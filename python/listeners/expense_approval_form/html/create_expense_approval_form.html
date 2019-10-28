@@ -18,7 +18,7 @@
                   <td>{{expense.expense_date}}</td>
                   <td>{{expense.expense_description}}</td>
                   <td>{{"$%.2f"|format(expense.expense_price)}}</td>
-                  <td><button type="action" name="remove-{{loop.index0}}">Remove</button></td>
+                  <td><button type="action" name="remove {{expense.expense_price}} {{expense.expense_name}}">Remove</button></td>
                 </tr>
                   {% endfor %}
               </tbody>
