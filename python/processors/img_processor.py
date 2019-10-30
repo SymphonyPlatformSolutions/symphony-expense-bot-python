@@ -1,4 +1,3 @@
-#amazon textract:
 import boto3
 import base64
 from .document import Document
@@ -16,7 +15,7 @@ def parse_attachment(msg, bot_client):
         if item["BlockType"] == "LINE":
             text = text + " " + item["Text"]
 
-    entities =  comprehend.detect_entities(LanguageCode="en", Text=text)
+    entities = comprehend.detect_entities(LanguageCode="en", Text=text)
     print(entities)
     quantity = []
     for entity in entities["Entities"]:

@@ -1,8 +1,13 @@
 import sys
 import logging
-from pythonjsonlogger import jsonlogger
+import json
 from pathlib import Path
-# sys.path.insert(1, '/Users/reed.feldman/Desktop/SDK/test/symphony-api-client-python')
+
+from sym_api_client_python.configure.configure import SymConfig
+from sym_api_client_python.auth.rsa_auth import SymBotRSAAuth
+from sym_api_client_python.clients.sym_bot_client import SymBotClient
+from listeners.im_listener_test_imp import IMListenerTestImp
+from listeners.element_listener_test_imp import ElementsListenerTestImp
 
 def is_venv():
     return (hasattr(sys, 'real_prefix') or
@@ -15,19 +20,17 @@ else:
     print('Docs for setting up virtual environment:')
     print('https://docs.python.org/3/library/venv.html')
 
-
-from sym_api_client_python.configure.configure import SymConfig
-from sym_api_client_python.auth.rsa_auth import SymBotRSAAuth
-from sym_api_client_python.clients.sym_bot_client import SymBotClient
-from listeners.im_listener_test_imp import IMListenerTestImp
-from listeners.element_listener_test_imp import ElementsListenerTestImp
+def load_env(path_to_env_file):
+    with open(path_to_env_file, "r") as env_file:
+        data = json.load(env_file)
+        if 'bot_id' in data:
+            data['bot_id'] = data['bot_id']
+    return data
 
 def configure_logging():
-
         mydir = Path('logs')
         mydir.mkdir(exist_ok=True, parents=True)
         myfname = mydir.joinpath('example.log')
-
         logging.basicConfig(
                 filename='./logs/example.log',
                 format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -36,36 +39,25 @@ def configure_logging():
         logging.getLogger("urllib3").setLevel(logging.WARNING)
 
 def main():
-        print('Python Client runs using RSA authentication')
-
-        # Configure log
         configure_logging()
-
-        # RSA Auth flow: pass path to rsa config.json file
         configure = SymConfig('../resources/config.json')
         configure.load_config()
+        bot_env = load_env('../resources/environment.json')
         auth = SymBotRSAAuth(configure)
         auth.authenticate()
-
         # Initialize SymBotClient with auth and configure objects
         bot_client = SymBotClient(auth, configure)
-
+        bot_client.bot_id = bot_env['bot_id']
         # Initialize datafeed service
         datafeed_event_service = bot_client.get_datafeed_event_service()
-
-        # Initialize listener objects and append them to datafeed_event_service
-        # Datafeed_event_service polls the datafeed and the event listeners
-        # respond to the respective types of events
+        # Add Listeners to datafeed event service
         im_listener_test = IMListenerTestImp(bot_client)
         datafeed_event_service.add_im_listener(im_listener_test)
-
         element_listener_test = ElementsListenerTestImp(bot_client)
         datafeed_event_service.add_elements_listener(element_listener_test)
-
         # Create and read the datafeed
         print('Starting datafeed')
         datafeed_event_service.start_datafeed()
-
 
 if __name__ == "__main__":
     main()

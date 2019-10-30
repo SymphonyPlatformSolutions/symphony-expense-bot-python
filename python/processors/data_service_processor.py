@@ -7,8 +7,8 @@ class DataService:
     def has_active_expense_report(self, userId):
         expenses = ExpenseReport.objects(owner=str(userId), open=True)
         if expenses:
-            print('data service', expenses.to_json())
+            logging.debug('data service', expenses.to_json())
             return True
         else:
-            print('no expense reports are open, continue')
+            logging.debug('no expense reports are open, continue')
             return False

@@ -3,12 +3,14 @@ import json
 from sym_api_client_python.processors.message_formatter import MessageFormatter
 from sym_api_client_python.processors.sym_elements_parser import SymElementsParser
 from listeners.expense_approval_form.expense_approval_class import render_expense_approval_form, render_add_expense_form, render_remove_expense_form, save_expense, remove_item, render_select_boss_form, render_select_finance_form, ExpenseReport
-from messages.messages import manager_submit_message, start_report_message, choose_boss_message, review_message, finance_approval_message, reject_message
+from messages.messages import Messages
 
 class ActionProcessor:
 
     def __init__(self, bot_client):
         self.bot_client = bot_client
+        self.bot_id = self.bot_client.bot_id
+        self.messages = Messages(self.bot_id)
 
     def process_im_action(self, action):
         logging.debug('action_processor/im_process')
@@ -25,7 +27,7 @@ class ActionProcessor:
             self.bot_client.get_message_client().send_msg(SymElementsParser().get_stream_id(action), render_expense_approval_form(action, 'listeners/expense_approval_form/html/create_expense_approval_form.html'))
 
         elif SymElementsParser().get_form_values(action)['action'] == 'approve':
-            self.bot_client.get_message_client().send_msg(SymElementsParser().get_stream_id(action), choose_boss_message)
+            self.bot_client.get_message_client().send_msg(SymElementsParser().get_stream_id(action), self.messages.choose_boss_message)
             self.bot_client.get_message_client().send_msg(SymElementsParser().get_stream_id(action), render_select_boss_form(action, 'listeners/expense_approval_form/html/select_boss.html'))
 
         elif SymElementsParser().get_form_values(action)['action'] == 'send-report':
@@ -47,20 +49,20 @@ class ActionProcessor:
             self.im_stream = self.bot_client.get_stream_client().create_im(SymElementsParser().get_form_values(action)['person-selector'])
 
             self.bot_client.get_message_client().send_msg(self.im_stream['id'], self.manager_recieve_message)
-            self.bot_client.get_message_client().send_msg(self.im_stream['id'], review_message)
+            self.bot_client.get_message_client().send_msg(self.im_stream['id'], self.messages.review_message)
             self.bot_client.get_message_client().send_msg(self.im_stream['id'], render_expense_approval_form(action, 'listeners/expense_approval_form/html/manager_expense_approval_form.html'))
 
         elif SymElementsParser().get_form_values(action)['action'].startswith('approve-expense'):
             user_id = SymElementsParser().get_form_values(action)['action'].split()[1]
             self.manager_stream = SymElementsParser().get_stream_id(action)
-            self.bot_client.get_message_client().send_msg(self.manager_stream, manager_submit_message)
+            self.bot_client.get_message_client().send_msg(self.manager_stream, self.messages.manager_submit_message)
             self.bot_client.get_message_client().send_msg(SymElementsParser().get_stream_id(action), render_select_finance_form('listeners/expense_approval_form/html/select_finance.html'))
 
             expense = ExpenseReport.objects(open=True, owner=str(user_id), manager=str(self.manager_id[0]))[0]
-            print(expense.to_json())
+            logging.debug(expense.to_json())
             expense.open=False
             expense.save()
-            print(expense.to_json())
+            logging.debug(expense.to_json())
 
         elif SymElementsParser().get_form_values(action)['action'] == 'send-finance':
             self.finance_id = SymElementsParser().get_form_values(action)['person-selector']
@@ -69,7 +71,7 @@ class ActionProcessor:
                                                    </messageML>""".format(self.finance_id[0]))
             self.bot_client.get_message_client().send_msg(SymElementsParser().get_stream_id(action), self.send_finance_message)
 
-            self.bot_client.get_message_client().send_msg(self.employee_stream, finance_approval_message)
+            self.bot_client.get_message_client().send_msg(self.employee_stream, self.messages.finance_approval_message)
 
         elif SymElementsParser().get_form_values(action)['action'].startswith('remove'):
             expense_name = SymElementsParser().get_form_values(action)['action'].split()[-1]
@@ -78,4 +80,4 @@ class ActionProcessor:
             self.bot_client.get_message_client().send_msg(SymElementsParser().get_stream_id(action), render_expense_approval_form(action, 'listeners/expense_approval_form/html/create_expense_approval_form.html'))
 
         elif SymElementsParser().get_form_values(action)['action'] == 'reject-expense':
-            self.bot_client.get_message_client().send_msg(self.employee_stream, reject_message)
+            self.bot_client.get_message_client().send_msg(self.employee_stream, self.messages.reject_message)

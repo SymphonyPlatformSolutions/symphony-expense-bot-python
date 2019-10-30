@@ -1,7 +1,7 @@
 import jinja2
 import json
-import pprint
 
+#mongoDB configuration
 from mongoengine import *
 connect('expenses')
 
@@ -55,15 +55,15 @@ def remove_item(action, name, price):
     total = float(expense[0]['report_total'])
     total -= float(price)
     expense.update(pull__expenses={"expense_name":name}, set__report_total=total)
-    print('updated expense: ', expense.to_json())
+    logging.debug('updated expense: ', expense.to_json())
 
 def render_expense_approval_form(action, path_to_html_form):
     user_id = SymElementsParser().get_initiator_user_id(action)
     expense_data = ExpenseReport.objects(owner=str(user_id), open=True)
-    print('inside: ', expense_data.to_json())
+    logging.debug('inside: ', expense_data.to_json())
     if len(expense_data) == 0:
-        print('no expenses yet')
-        print('expense data: ', expense_data)
+        logging.debug('no expenses yet')
+        logging.debug('expense data: ', expense_data)
         expense_data = {
             "ExpenseApprovalForm": {
                 "expenses": [
@@ -87,10 +87,10 @@ def render_expense_approval_form(action, path_to_html_form):
 
 def render_expense_approval_from_message(userId, path_to_html_form):
     expense_data = ExpenseReport.objects(owner=str(userId), open=True)
-    print('inside: ', expense_data.to_json())
+    logging.debug('inside: ', expense_data.to_json())
     if len(expense_data) == 0:
-        print('no expenses yet')
-        print('expense data: ', expense_data)
+        logging.debug('no expenses yet')
+        logging.debug('expense data: ', expense_data)
         expense_data = {
             "ExpenseApprovalForm": {
                 "expenses": [
