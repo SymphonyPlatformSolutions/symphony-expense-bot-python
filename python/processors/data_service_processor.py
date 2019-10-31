@@ -1,4 +1,5 @@
 from listeners.expense_approval_form.expense_approval_class import ExpenseReport
+import logging
 
 class DataService:
     def __init__(self):

@@ -1,9 +1,18 @@
 import jinja2
 import json
+import ssl
+import dns
+import logging
+
+with open('../resources/environment.json', 'r') as f:
+    data = json.load(f)
 
 #mongoDB configuration
 from mongoengine import *
-connect('expenses')
+connect(
+    db=data['db'],
+    host=data['host']
+)
 
 from jinja2 import Template
 from sym_api_client_python.processors.message_formatter import MessageFormatter
