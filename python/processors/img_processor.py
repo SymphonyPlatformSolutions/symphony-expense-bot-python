@@ -6,13 +6,15 @@ import os
 client = boto3.client(
     'textract',
     aws_access_key_id=os.environ['ACCESS_KEY'],
-    aws_secret_access_key=os.environ['SECRET_KEY']
+    aws_secret_access_key=os.environ['SECRET_KEY'],
+    region_name=os.environ['REGION']
 )
 # comprehend = boto3.client('comprehend')
 comprehend = boto3.client(
     'comprehend',
     aws_access_key_id=os.environ['ACCESS_KEY'],
-    aws_secret_access_key=os.environ['SECRET_KEY']
+    aws_secret_access_key=os.environ['SECRET_KEY'],
+    region_name=os.environ['REGION']
 )
 def parse_attachment(msg, bot_client):
 
