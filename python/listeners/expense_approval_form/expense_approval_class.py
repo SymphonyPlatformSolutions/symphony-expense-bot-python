@@ -2,7 +2,7 @@ import jinja2
 import json
 import logging
 
-with open('../resources/environment.json', 'r') as f:
+with open('./resources/environment.json', 'r') as f:
     data = json.load(f)
 
 #mongoDB configuration

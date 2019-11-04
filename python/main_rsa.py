@@ -40,9 +40,9 @@ def configure_logging():
 
 def main():
         configure_logging()
-        configure = SymConfig('../resources/config.json')
+        configure = SymConfig('./resources/config.json')
         configure.load_config()
-        bot_env = load_env('../resources/environment.json')
+        bot_env = load_env('./resources/environment.json')
         auth = SymBotRSAAuth(configure)
         auth.authenticate()
         # Initialize SymBotClient with auth and configure objects
