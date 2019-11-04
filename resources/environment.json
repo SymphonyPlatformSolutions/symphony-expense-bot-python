@@ -1,0 +1,5 @@
+{
+  "bot_id" : "349026222344891",
+  "db" : "expenses",
+  "host": "mongodb+srv://rfeldman:reed@cluster0-y27fx.mongodb.net/test?retryWrites=true&w=majority"
+}
