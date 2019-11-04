@@ -1,7 +1,5 @@
 import jinja2
 import json
-import ssl
-import dns
 import logging
 
 with open('../resources/environment.json', 'r') as f:
