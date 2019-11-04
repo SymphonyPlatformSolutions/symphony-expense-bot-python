@@ -48,7 +48,7 @@ jobs:
           name: run app
           command: |
             . venv/bin/activate
-            python .python/manage.py test
+            python python/main_rsa.py
 
       - store_artifacts:
           path: test-reports
