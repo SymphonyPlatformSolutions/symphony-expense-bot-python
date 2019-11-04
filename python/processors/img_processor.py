@@ -1,9 +1,19 @@
 import boto3
 import base64
 from .document import Document
-client = boto3.client('textract')
-comprehend = boto3.client('comprehend')
-
+import os
+# client = boto3.client('textract')
+client = boto3.client(
+    'textract',
+    aws_access_key_id=os.environ['ACCESS_KEY'],
+    aws_secret_access_key=os.environ['SECRET_KEY']
+)
+# comprehend = boto3.client('comprehend')
+comprehend = boto3.client(
+    'comprehend',
+    aws_access_key_id=os.environ['ACCESS_KEY'],
+    aws_secret_access_key=os.environ['SECRET_KEY']
+)
 def parse_attachment(msg, bot_client):
 
     attachment_body = bot_client.get_message_client().get_msg_attachment(msg['stream']['streamId'], msg['messageId'], msg['attachments'][0]['id'])

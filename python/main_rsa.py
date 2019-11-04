@@ -2,6 +2,7 @@ import sys
 import logging
 import json
 from pathlib import Path
+import os
 
 from sym_api_client_python.configure.configure import SymConfig
 from sym_api_client_python.auth.rsa_auth import SymBotRSAAuth
@@ -20,13 +21,6 @@ else:
     print('Docs for setting up virtual environment:')
     print('https://docs.python.org/3/library/venv.html')
 
-def load_env(path_to_env_file):
-    with open(path_to_env_file, "r") as env_file:
-        data = json.load(env_file)
-        if 'bot_id' in data:
-            data['bot_id'] = data['bot_id']
-    return data
-
 def configure_logging():
         mydir = Path('logs')
         mydir.mkdir(exist_ok=True, parents=True)
@@ -42,12 +36,11 @@ def main():
         configure_logging()
         configure = SymConfig('./resources/config.json')
         configure.load_config()
-        bot_env = load_env('./resources/environment.json')
         auth = SymBotRSAAuth(configure)
         auth.authenticate()
         # Initialize SymBotClient with auth and configure objects
         bot_client = SymBotClient(auth, configure)
-        bot_client.bot_id = bot_env['bot_id']
+        bot_client.bot_id = os.environ['BOT_ID']
         # Initialize datafeed service
         datafeed_event_service = bot_client.get_datafeed_event_service()
         # Add Listeners to datafeed event service

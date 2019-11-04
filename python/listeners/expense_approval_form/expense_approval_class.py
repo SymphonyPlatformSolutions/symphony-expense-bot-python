@@ -1,15 +1,22 @@
 import jinja2
 import json
 import logging
+import os
 
-with open('./resources/environment.json', 'r') as f:
-    data = json.load(f)
+# with open('./resources/environment.json', 'r') as f:
+#     data = json.load(f)
+#
+# #mongoDB configuration
+# # from mongoengine import *
+# # connect(
+# #     db=data['db'],
+# #     host=data['host']
+# # )
 
-#mongoDB configuration
 from mongoengine import *
 connect(
-    db=data['db'],
-    host=data['host']
+    db=os.environ['DB'],
+    host=os.environ['HOST']
 )
 
 from jinja2 import Template
