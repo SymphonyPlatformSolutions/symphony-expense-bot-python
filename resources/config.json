@@ -8,19 +8,10 @@
     "agentHost": "develop2.symphony.com",
     "agentPort": 443,
     "authType": "rsa",
-    "botCertPath": "",
-    "botCertName": "",
-    "botCertPassword": "",
-    "botPrivateKeyPath": "./rsa/",
+
+    "botPrivateKeyPath": ".",
     "botPrivateKeyName": "${PRIVATE_KEY}",
+
     "botUsername": "karlPythonDemo",
     "botEmailAddress": "karlPythonDemo@demo.com",
-    "appCertPath": "",
-    "appCertName": "",
-    "appCertPassword": "",
-    "proxyURL": "",
-    "proxyUsername": "",
-    "proxyPassword": "",
-    "authTokenRefreshPeriod": "30",
-    "truststorePath": ""
 }
