@@ -14,7 +14,6 @@ gcp_defaults: &gcp_defaults
     - image: google/cloud-sdk
   working_directory: ~/project
 
-    working_directory: ~/repo
 
 #####################################################
 # Common Commands
