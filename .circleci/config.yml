@@ -140,6 +140,7 @@ jobs:
 
     steps:
       - checkout
+
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -147,17 +148,19 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run:
-          name: install dependencies
-          command: |
-            python3 -m venv venv
-            . venv/bin/activate
-            pip install -r requirements.txt
+      - run: mvn dependency:go-offline
 
       - save_cache:
           paths:
             - ./venv
           key: v1-dependencies-{{ checksum "requirements.txt" }}
+
+      # persist the generated jar to make it available in next step (building the docker image)
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .circleci
+            - Dockerfile
 
   docker_build:
     <<: *gcp_defaults
@@ -192,7 +195,6 @@ jobs:
           paths:
             - .circleci
             - Dockerfile
-
 #####################################################
 # Workflow
 #####################################################
