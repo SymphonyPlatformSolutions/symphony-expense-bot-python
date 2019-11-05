@@ -72,6 +72,7 @@ commands:
             gcloud --quiet config set project << parameters.project >>
             gcloud --quiet config set compute/zone  << parameters.compute_zone >>
             gcloud --quiet container clusters get-credentials << parameters.cluster_name >>
+
   push_docker_image:
     description: Push a Docker image to the specified registry
     parameters:
@@ -99,6 +100,7 @@ commands:
           command: |
             echo ${PRIVATE_KEY} > private-key.pkcs8
             kubectl create secret generic ${IMAGE_NAME}-dev-rsa --from-file=./private-key.pkcs8 --dry-run -o yaml | kubectl apply -f -
+
   deploy_to_kubernetes:
     description: Deploy workload to Kubernetes Cluster
     parameters:
@@ -157,45 +159,39 @@ jobs:
             - ./venv
           key: v1-dependencies-{{ checksum "requirements.txt" }}
 
-      - run:
-          name: run app
-          command: |
-            . venv/bin/activate
-            python python/main_rsa.py
+    docker_build:
+      <<: *gcp_defaults
 
-  docker_build:
-    <<: *gcp_defaults
+      working_directory: ~/project
 
-    working_directory: ~/project
+      steps:
+        - attach_workspace:
+            at: ~/project
 
-    steps:
-      - attach_workspace:
-          at: ~/project
+        - setup_remote_docker
 
-      - setup_remote_docker
+        - get_google_account:
+            auth_string: ${GOOGLE_AUTH}
+            key_file: ./gcp-key.json
 
-      - get_google_account:
-          auth_string: ${GOOGLE_AUTH}
-          key_file: ./gcp-key.json
+        - build_docker_image
 
-      - build_docker_image
+        - google_cloud_authenticate:
+            key_file: ./gcp-key.json
+            project: ${GCP_PROJECT}
+            compute_zone: ${GOOGLE_COMPUTE_ZONE}
+            cluster_name: ${GOOGLE_CLUSTER_NAME}
 
-      - google_cloud_authenticate:
-          key_file: ./gcp-key.json
-          project: ${GCP_PROJECT}
-          compute_zone: ${GOOGLE_COMPUTE_ZONE}
-          cluster_name: ${GOOGLE_CLUSTER_NAME}
+        - push_docker_image
 
-      - push_docker_image
+        # Using default parameter
+        - deploy_to_kubernetes
 
-      # Using default parameter
-      - deploy_to_kubernetes
-
-      - persist_to_workspace:
-          root: ~/project
-          paths:
-            - .circleci
-            - Dockerfile
+        - persist_to_workspace:
+            root: ~/project
+            paths:
+              - .circleci
+              - Dockerfile
 
 #####################################################
 # Workflow
