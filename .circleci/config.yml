@@ -37,20 +37,21 @@ commands:
             docker build << parameters.params >> \
                 -t << parameters.registry >>/<< parameters.project >>/<< parameters.image_name >>:<<parameters.tag >> << parameters.context >>
 
-get_google_account:
-    description: Get Google Authentication Auth Data
-    parameters:
-      auth_string:
-        type: string
-        default: ${GOOGLE_AUTH}
-      key_file:
-        description: Target file to save auth data
-        type: string
-    steps:
-      - run:
-          name: Get Google Cloud Account Info
-          command: |
-            echo << parameters.auth_string >> > << parameters.key_file >>
+  get_google_account:
+      description: Get Google Authentication Auth Data
+      parameters:
+        auth_string:
+          type: string
+          default: ${GOOGLE_AUTH}
+        key_file:
+          description: Target file to save auth data
+          type: string
+      steps:
+        - run:
+            name: Get Google Cloud Account Info
+            command: |
+              echo << parameters.auth_string >> > << parameters.key_file >>
+
   google_cloud_authenticate:
     description: Authenticate within GCP
     parameters:
