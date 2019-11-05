@@ -12,7 +12,7 @@
     "botCertName": "",
     "botCertPassword": "",
     "botPrivateKeyPath": "./rsa/",
-    "botPrivateKeyName": "rsa-private-karlPythonDemo.pem",
+    "botPrivateKeyName": "${PRIVATE_KEY}",
     "botUsername": "karlPythonDemo",
     "botEmailAddress": "karlPythonDemo@demo.com",
     "appCertPath": "",

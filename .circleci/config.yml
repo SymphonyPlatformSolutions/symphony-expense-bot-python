@@ -157,6 +157,12 @@ jobs:
             - ./venv
           key: v1-dependencies-{{ checksum "requirements.txt" }}
 
+      - run:
+          name: run app
+          command: |
+            . venv/bin/activate
+            python python/main_rsa.py
+
   docker_build:
     <<: *gcp_defaults
 
