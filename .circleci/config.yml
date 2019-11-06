@@ -179,6 +179,7 @@ jobs:
       - persist_to_workspace:
           root: ~/project
           paths:
+            - ./python
             - .circleci
             - Dockerfile
             - main_rsa.py
@@ -215,6 +216,7 @@ jobs:
       - persist_to_workspace:
           root: ~/project
           paths:
+            - ./python
             - .circleci
             - Dockerfile
             - main_rsa.py
