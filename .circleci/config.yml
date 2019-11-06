@@ -231,7 +231,3 @@ workflows:
       - docker_build:
           requires:
             - build
-          filters:
-            branches:
-              only:
-                - release
