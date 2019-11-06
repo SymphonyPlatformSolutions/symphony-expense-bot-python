@@ -4,7 +4,7 @@ RUN mkdir -p /data/symphony
 WORKDIR /data/symphony
 
 COPY ./venv /data/symphony/venv
-COPY python/* /data/symphony
+COPY python /data/symphony/
 
 EXPOSE 80
 
