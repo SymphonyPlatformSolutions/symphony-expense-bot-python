@@ -3,7 +3,7 @@ FROM python:3.7.4
 RUN mkdir -p /data/symphony
 WORKDIR /data/symphony
 
-COPY ./venv
+COPY ./venv /data/symphony/venv
 COPY python/* /data/symphony
 
 EXPOSE 80
