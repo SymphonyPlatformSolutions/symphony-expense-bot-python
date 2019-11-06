@@ -173,15 +173,16 @@ jobs:
           key: v1-dependencies-{{ checksum "requirements.txt" }}
 
       # # package into a jar
-      - run: mvn clean package
+      # - run: mvn clean package
 
       # persist the generated jar to make it available in next step (building the docker image)
       - persist_to_workspace:
           root: ~/project
           paths:
             - .circleci
-            - target/*.jar
             - Dockerfile
+            - main_rsa.py
+            - requirements.txt
 
   docker_build:
     <<: *gcp_defaults
@@ -216,6 +217,8 @@ jobs:
           paths:
             - .circleci
             - Dockerfile
+            - main_rsa.py
+            - requirements.txt
 
 #####################################################
 # Workflow
