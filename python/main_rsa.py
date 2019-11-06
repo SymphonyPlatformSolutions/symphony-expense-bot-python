@@ -34,7 +34,7 @@ def configure_logging():
 
 def main():
         configure_logging()
-        configure = SymConfig('./resources/config.json')
+        configure = SymConfig('config.json')
         configure.load_config()
         auth = SymBotRSAAuth(configure)
         auth.authenticate()
