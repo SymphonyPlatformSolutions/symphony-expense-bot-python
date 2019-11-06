@@ -169,10 +169,9 @@ jobs:
 
       - save_cache:
           paths:
-             paths:
             - '.venv'
             - '/usr/local/bin'
-            - '/usr/local/lib/python3.7/site-packages'
+            - '/usr/local/lib/python3.6/site-packages'
           key: v1-dependencies-{{ checksum "requirements.txt" }}
 
       # # package into a jar
