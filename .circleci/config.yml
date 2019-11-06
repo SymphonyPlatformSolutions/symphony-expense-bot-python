@@ -185,6 +185,7 @@ jobs:
             - .circleci
             - Dockerfile
             - main_rsa.py
+            - requirements.txt
             - ./venv
 
   docker_build:
@@ -221,6 +222,7 @@ jobs:
             - ./python
             - .circleci
             - Dockerfile
+            - requirements.txt
             - main_rsa.py
             - ./venv
 
