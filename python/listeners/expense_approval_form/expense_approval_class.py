@@ -14,10 +14,10 @@ import os
 # # )
 
 from mongoengine import *
-# connect(
-#     db=os.environ['DB'],
-#     host=os.environ['HOST']
-# )
+connect(
+    db=os.environ['DB'],
+    host=os.environ['HOST']
+)
 
 from jinja2 import Template
 from sym_api_client_python.processors.message_formatter import MessageFormatter
