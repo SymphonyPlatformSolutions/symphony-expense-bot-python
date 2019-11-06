@@ -8,8 +8,8 @@
     "agentHost": "develop2.symphony.com",
     "agentPort": 443,
     "authType": "rsa",
-    "botPrivateKeyPath": "",
-    "botPrivateKeyName": ${PRIVATE_KEY},
+    "botPrivateKeyPath": "/data/symphony/rsa/",
+    "botPrivateKeyName": "private-key.pkcs8",
     "botUsername": "karlPythonDemo",
     "botEmailAddress": "karlPythonDemo@demo.com"
 }

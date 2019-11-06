@@ -6,6 +6,6 @@ WORKDIR /data/symphony
 COPY ./venv /data/symphony/venv
 COPY python /data/symphony/
 
-EXPOSE 80
+EXPOSE 8080
 
 CMD [ "python3", "./main_rsa.py" ]
