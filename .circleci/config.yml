@@ -182,7 +182,7 @@ jobs:
             - .circleci
             - Dockerfile
             - main_rsa.py
-            - requirements.txt
+            - ./venv
 
   docker_build:
     <<: *gcp_defaults
@@ -218,7 +218,7 @@ jobs:
             - .circleci
             - Dockerfile
             - main_rsa.py
-            - requirements.txt
+            - ./venv
 
 #####################################################
 # Workflow
