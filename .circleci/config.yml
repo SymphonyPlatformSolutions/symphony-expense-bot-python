@@ -1,13 +1,26 @@
-version: 2
+# Java Maven CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-java/ for more details
+#
+version: 2.1
+#####################################################
+# Run config
+#####################################################
 defaults: &defaults
   docker:
-    - image: circleci/python:3.6.4
+    - image: circleci/python:3.7.4
   working_directory: ~/project
+
 gcp_defaults: &gcp_defaults
   docker:
     - image: google/cloud-sdk
   working_directory: ~/project
 
+#####################################################
+# Common Commands
+#####################################################
+# TODO: Author a private Orb. Status: CircleCI feature avaliation
+# Specific CI commands should be setup as an anchor.
 commands:
   build_docker_image:
     description: Build a Docker image
@@ -36,22 +49,20 @@ commands:
           command: |
             docker build << parameters.params >> \
                 -t << parameters.registry >>/<< parameters.project >>/<< parameters.image_name >>:<<parameters.tag >> << parameters.context >>
-
   get_google_account:
-      description: Get Google Authentication Auth Data
-      parameters:
-        auth_string:
-          type: string
-          default: ${GOOGLE_AUTH}
-        key_file:
-          description: Target file to save auth data
-          type: string
-      steps:
-        - run:
-            name: Get Google Cloud Account Info
-            command: |
-              echo << parameters.auth_string >> > << parameters.key_file >>
-
+    description: Get Google Authentication Auth Data
+    parameters:
+      auth_string:
+        type: string
+        default: ${GOOGLE_AUTH}
+      key_file:
+        description: Target file to save auth data
+        type: string
+    steps:
+      - run:
+          name: Get Google Cloud Account Info
+          command: |
+            echo << parameters.auth_string >> > << parameters.key_file >>
   google_cloud_authenticate:
     description: Authenticate within GCP
     parameters:
@@ -72,7 +83,6 @@ commands:
             gcloud --quiet config set project << parameters.project >>
             gcloud --quiet config set compute/zone  << parameters.compute_zone >>
             gcloud --quiet container clusters get-credentials << parameters.cluster_name >>
-
   push_docker_image:
     description: Push a Docker image to the specified registry
     parameters:
@@ -100,7 +110,6 @@ commands:
           command: |
             echo ${PRIVATE_KEY} > private-key.pkcs8
             kubectl create secret generic ${IMAGE_NAME}-dev-rsa --from-file=./private-key.pkcs8 --dry-run -o yaml | kubectl apply -f -
-
   deploy_to_kubernetes:
     description: Deploy workload to Kubernetes Cluster
     parameters:
@@ -129,14 +138,17 @@ commands:
             envsubst < << parameters.template >> > << parameters.deployment >>
             kubectl apply -f << parameters.deployment >>
             kubectl rollout status deployment/${IMAGE_NAME}
-
 jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/python:3.6.1
+      - image: circleci/openjdk:11.0.1-jdk
 
     working_directory: ~/project
+
+    environment:
+      # Customize the JVM maximum heap limit
+      MAVEN_OPTS: -Xmx3200m
 
     steps:
       - checkout
@@ -148,10 +160,28 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
+      - run:
+          name: Install Python deps in a venv
+          command: |
+            python3 -m venv venv
+            . venv/bin/activate
+            pip install -r requirements/dev.txt
+
       - save_cache:
           paths:
             - ./venv
           key: v1-dependencies-{{ checksum "requirements.txt" }}
+
+      # # package into a jar
+      # - run: mvn clean package
+
+      # persist the generated jar to make it available in next step (building the docker image)
+      # - persist_to_workspace:
+      #     root: ~/project
+      #     paths:
+      #       - .circleci
+      #       - target/*.jar
+      #       - Dockerfile
 
   docker_build:
     <<: *gcp_defaults
@@ -186,6 +216,7 @@ jobs:
           paths:
             - .circleci
             - Dockerfile
+
 #####################################################
 # Workflow
 #####################################################
