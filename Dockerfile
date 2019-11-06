@@ -4,7 +4,7 @@ RUN mkdir -p /data/symphony
 WORKDIR /data/symphony
 
 COPY python /data/symphony/
-COPY requirements.txt /data/symphony
+COPY requirements.txt /data/symphony/
 
 EXPOSE 8080
 
