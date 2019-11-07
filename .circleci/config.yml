@@ -109,7 +109,7 @@ commands:
           name: Get Bot Credentials
           command: |
              echo ${PRIVATE_KEY} | base64 --decode > private-key.pem
-            kubectl create secret generic ${IMAGE_NAME}-dev-rsa --from-file=./private-key.pem --dry-run -o yaml | kubectl apply -f -
+             kubectl create secret generic ${IMAGE_NAME}-dev-rsa --from-file=./private-key.pem --dry-run -o yaml | kubectl apply -f -
   deploy_to_kubernetes:
     description: Deploy workload to Kubernetes Cluster
     parameters:
