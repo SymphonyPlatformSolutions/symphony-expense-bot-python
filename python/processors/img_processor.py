@@ -12,7 +12,7 @@ client = boto3.client(
     aws_secret_access_key=data['aws_secret_access_key'],
     region_name=data['region']
 )
-#aws
+#aws comp
 comprehend = boto3.client(
     'comprehend',
     aws_access_key_id=data['aws_access_key_id'],
