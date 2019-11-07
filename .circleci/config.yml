@@ -9,26 +9,11 @@ version: 2.1
 defaults: &defaults
   docker:
     - image: circleci/python:3.7.4
-      environment:
-            HOST: mongodb+srv://rfeldman:reed@cluster0-y27fx.mongodb.net/test?retryWrites=true&w=majorit
-            BOT_ID: 349026222344891
-            DB: expenses
-            ACCESS_KEY: AKIAXSBKOXMFANOUZKH5
-            SECRET_KEY: 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
-            REGION: us-east-1
-
   working_directory: ~/project
 
 gcp_defaults: &gcp_defaults
   docker:
     - image: google/cloud-sdk
-      environment:
-            HOST: mongodb+srv://rfeldman:reed@cluster0-y27fx.mongodb.net/test?retryWrites=true&w=majorit
-            BOT_ID: 349026222344891
-            DB: expenses
-            ACCESS_KEY: AKIAXSBKOXMFANOUZKH5
-            SECRET_KEY: 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
-            REGION: us-east-1
   working_directory: ~/project
 
 #####################################################
