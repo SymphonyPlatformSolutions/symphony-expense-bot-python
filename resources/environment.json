@@ -1,5 +1,8 @@
 {
   "bot_id" : "349026222344891",
   "db" : "expenses",
-  "host": "mongodb+srv://rfeldman:reed@cluster0-y27fx.mongodb.net/test?retryWrites=true&w=majority"
+  "host": "mongodb+srv://rfeldman:reed@cluster0-y27fx.mongodb.net/test?retryWrites=true&w=majority",
+  "region": "us-east-1",
+  "aws_access_key_id": "AKIAXSBKOXMFANOUZKH5",
+  "aws_secret_access_key": "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"
 }

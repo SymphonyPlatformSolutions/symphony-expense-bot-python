@@ -8,8 +8,9 @@
     "agentHost": "develop2.symphony.com",
     "agentPort": 443,
     "authType": "rsa",
-    "botPrivateKeyPath": "/data/symphony/rsa/",
-    "botPrivateKeyName": "private-key.pkcs8",
+    "botPrivateKeyPath": "./rsa/",
+    "botPrivateKeyName": "rsa-private-karlPythonDemo.pem",
     "botUsername": "karlPythonDemo",
-    "botEmailAddress": "karlPythonDemo@demo.com"
+    "botEmailAddress": "karlPythonDemo@demo.com",
+    "truststorePath": ""
 }

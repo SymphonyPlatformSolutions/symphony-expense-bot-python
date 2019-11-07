@@ -1,20 +1,23 @@
 import boto3
 import base64
 from .document import Document
-import os
+import json
+
+with open('./resources/environment.json', 'r') as f:
+    data = json.load(f)
 
 client = boto3.client(
     'textract',
-    aws_access_key_id=os.environ['ACCESS_KEY'],
-    aws_secret_access_key=os.environ['SECRET_KEY'],
-    region_name=os.environ['REGION']
+    aws_access_key_id=data['aws_access_key_id'],
+    aws_secret_access_key=data['aws_secret_access_key'],
+    region_name=data['region']
 )
 
 comprehend = boto3.client(
     'comprehend',
-    aws_access_key_id=os.environ['ACCESS_KEY'],
-    aws_secret_access_key=os.environ['SECRET_KEY'],
-    region_name=os.environ['REGION']
+    aws_access_key_id=data['aws_access_key_id'],
+    aws_secret_access_key=data['aws_secret_access_key'],
+    region_name=data['region']
 )
 def parse_attachment(msg, bot_client):
     attachment_body = bot_client.get_message_client().get_msg_attachment(msg['stream']['streamId'], msg['messageId'], msg['attachments'][0]['id'])

@@ -3,21 +3,21 @@ import json
 import logging
 import os
 
-# with open('./resources/environment.json', 'r') as f:
-#     data = json.load(f)
-#
-# #mongoDB configuration
-# # from mongoengine import *
-# # connect(
-# #     db=data['db'],
-# #     host=data['host']
-# # )
+with open('./resources/environment.json', 'r') as f:
+    data = json.load(f)
 
+# mongoDB configuration
 from mongoengine import *
 connect(
-    db=os.environ['DB'],
-    host=os.environ['HOST']
+    db=data['db'],
+    host=data['host']
 )
+
+# from mongoengine import *
+# connect(
+#     db=os.environ['DB'],
+#     host=os.environ['HOST']
+# )
 
 from jinja2 import Template
 from sym_api_client_python.processors.message_formatter import MessageFormatter
