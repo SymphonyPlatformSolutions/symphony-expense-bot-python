@@ -32,13 +32,16 @@ def parse_attachment(msg, bot_client):
     entities = comprehend.detect_entities(LanguageCode="en", Text=text)
     print(entities)
     quantity = []
-    for entity in entities["Entities"]:
-        if entity.get("Type", "") == 'DATE':
-            date = entity.get("Text")
-        if entity.get("Type", "") == 'ORGANIZATION':
-            description = entity.get("Text")
-            org = entity.get("Text")
-        if entity.get("Type", "") == 'QUANTITY':
-            quantity.append(float(entity.get("Text").lstrip('$')))
-    total = max(quantity)
+    try:
+        for entity in entities["Entities"]:
+            if entity.get("Type", "") == 'DATE':
+                date = entity.get("Text")
+            if entity.get("Type", "") == 'ORGANIZATION':
+                description = entity.get("Text")
+                org = entity.get("Text")
+            if entity.get("Type", "") == 'QUANTITY':
+                quantity.append(float(entity.get("Text").lstrip('$')))
+        total = max(quantity)
+    except ValueError:
+        bot_client.get_message_client().send_msg(SymElementsParser().get_stream_id(action), MessageFormatter().format_message('Invalid price format, try again'))
     return [(org, date, total, description)]
