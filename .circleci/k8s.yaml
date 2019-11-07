@@ -51,8 +51,8 @@ spec:
         secret:
           secretName: ${IMAGE_NAME}-dev-rsa
           items:
-          - key: private-key.pkcs8
-            path: private-key.pkcs8
+          - key: private-key.pem
+            path: private-key.pem
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       schedulerName: default-scheduler
