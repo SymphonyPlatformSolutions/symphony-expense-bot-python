@@ -34,6 +34,9 @@ spec:
         - name: bot-config
           mountPath: /data/symphony/config.json
           subPath: config.json
+        - name: environment-config
+          mountPath: /data/symphony/environment.json
+          subPath: environment.json
         - name: bot-key
           mountPath: /data/symphony/rsa
           readOnly: true
@@ -41,6 +44,9 @@ spec:
       - name: bot-config
         configMap:
           name: ${IMAGE_NAME}-config
+      - name: environment-config
+        configMap:
+          name: ${IMAGE_NAME}-environment
       - name: bot-key
         secret:
           secretName: ${IMAGE_NAME}-dev-rsa
