@@ -3,7 +3,7 @@ import base64
 from .document import Document
 import json
 
-with open('./resources/environment.json', 'r') as f:
+with open('./environment.json', 'r') as f:
     data = json.load(f)
 
 client = boto3.client(

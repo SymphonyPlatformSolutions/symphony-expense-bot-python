@@ -3,7 +3,7 @@ import json
 import logging
 import os
 
-with open('./resources/environment.json', 'r') as f:
+with open('./environment.json', 'r') as f:
     data = json.load(f)
 
 # mongoDB configuration
