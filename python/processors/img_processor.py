@@ -2,6 +2,7 @@ import boto3
 import base64
 from .document import Document
 import json
+from sym_api_client_python.processors.message_formatter import MessageFormatter
 
 with open('./environment.json', 'r') as f:
     data = json.load(f)
