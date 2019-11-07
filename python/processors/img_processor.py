@@ -43,5 +43,5 @@ def parse_attachment(msg, bot_client):
                 quantity.append(float(entity.get("Text").lstrip('$')))
         total = max(quantity)
     except ValueError:
-        bot_client.get_message_client().send_msg(SymElementsParser().get_stream_id(action), MessageFormatter().format_message('Invalid price format, try again'))
+        bot_client.get_message_client().send_msg(msg['stream']['streamId'], MessageFormatter().format_message('Invalid price format, try again'))
     return [(org, date, total, description)]
