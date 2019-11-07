@@ -8,12 +8,14 @@ with open('./environment.json', 'r') as f:
 
 print(data['db'])
 print(data['host'])
+
 # mongoDB configuration
 from mongoengine import *
 connect(
     db=data['db'],
     host=data['host']
 )
+print('connecting')
 
 # from mongoengine import *
 # connect(
