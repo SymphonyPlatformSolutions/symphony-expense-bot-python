@@ -6,6 +6,8 @@ import os
 with open('./environment.json', 'r') as f:
     data = json.load(f)
 
+print(data['db'])
+print(data['host'])
 # mongoDB configuration
 from mongoengine import *
 connect(
