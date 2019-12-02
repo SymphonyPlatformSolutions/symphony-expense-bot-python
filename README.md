@@ -95,3 +95,43 @@ Connect to MongoDB via pymongo or mongoengine:
 * Create AWS IAM User Account to access AWS Features
 * Leverage AWS Textract using boto3 python SDK: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/textract.html
 * Check out the developers guide for using AWS Textract: https://docs.aws.amazon.com/textract/latest/dg/getting-started.html
+
+python/processors/img_processor.py 
+
+```
+def parse_attachment(msg, bot_client):
+    attachment_body = bot_client.get_message_client().get_msg_attachment(msg['stream']['streamId'], msg['messageId'],       msg['attachments'][0]['id'])
+    decoded = base64.b64decode(attachment_body)
+    response = client.detect_document_text(Document={'Bytes': decoded})
+
+    text = ""
+    for item in response["Blocks"]:
+        if item["BlockType"] == "LINE":
+            text = text + " " + item["Text"]
+
+    entities = comprehend.detect_entities(LanguageCode="en", Text=text)
+    print(entities)
+    quantity = []
+    try:
+        for entity in entities["Entities"]:
+            if entity.get("Type", "") == 'DATE':
+                date = entity.get("Text")
+            if entity.get("Type", "") == 'ORGANIZATION':
+                description = entity.get("Text")
+                org = entity.get("Text")
+            if entity.get("Type", "") == 'QUANTITY':
+                quantity.append(float(entity.get("Text").lstrip('$')))
+        total = max(quantity)
+    except ValueError:
+        bot_client.get_message_client().send_msg(msg['stream']['streamId'], MessageFormatter().format_message('Invalid price format, try again'))
+    return [(org, date, total, description)]
+```
+
+# Disclaimer 
+
+* This project was created to demonstrate how to use elements and a simple AWS Textract integration
+* Note that not all receipts can be read/extracted successfuly using AWS Textract
+* See the below sample receipt as one that works with the extraction logic in python/processors/img_processor
+
+![Receipt](resources/receipt.png)
+
