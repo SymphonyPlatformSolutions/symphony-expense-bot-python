@@ -1,2 +1,2 @@
 # symphony-expense-bot-python
-demo expense report bot showcases Symphony Elements and Amazon Textract
+Demo expense report bot showcases how to use Symphony Elements and Amazon Textract
