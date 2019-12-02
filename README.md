@@ -131,7 +131,7 @@ def parse_attachment(msg, bot_client):
 
 * This project was created to demonstrate how to use elements and a simple AWS Textract integration
 * Note that not all receipts can be read/extracted successfuly using AWS Textract
-* See the below sample receipt as one that works with the extraction logic in python/processors/img_processor
+* See the below sample receipt as one that works with the text extraction logic in python/processors/img_processor
 
 ![Receipt](resources/receipt.png)
 
