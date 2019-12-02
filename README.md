@@ -78,7 +78,7 @@ $ source env/bin/activate
 $ pip install -r requirements.txt
 
 ```
-expenseBot/python 
+Navigate to expenseBot/python and run:
 
 ```
 $ python3 main_rsa.py
