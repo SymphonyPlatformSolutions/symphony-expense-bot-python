@@ -84,3 +84,14 @@ Navigate to expenseBot/python and run:
 $ python3 main_rsa.py
 ```
 
+# MongoDB
+
+Connect to MongoDB via pymongo or mongoengine:
+
+* https://docs.mongodb.com/ecosystem/drivers/pymongo/
+
+# AWS Textract
+
+* Create AWS IAM User Account to access AWS Features
+* Leverage AWS Textract using boto3 python SDK: https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/textract.html
+* Check out the developers guide for using AWS Textract: https://docs.aws.amazon.com/textract/latest/dg/getting-started.html
