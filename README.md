@@ -52,3 +52,35 @@ resources/config.json
   "truststorePath": ""
 }
 ```
+resources/environment.json
+
+* Configure Bot UserID, MongoDB Credentials, and AWS IAM User Info:
+
+```
+{
+  "bot_id" : "BOT ID",
+  "db" : "DB NAME",
+  "host": "MONGODB URI",
+  "region": "us-east-1",
+  "aws_access_key_id": "YOUR AWS ACCESS KEY ID",
+  "aws_secret_access_key": "YOUR AWS SECRET ACCESS KEY"
+}
+```
+
+# Testing
+
+* In order to test locally, follow configuration instructions above and clone repo
+* Install dependencies locally:
+
+```
+$ python3 -m venv env
+$ source env/bin/activate
+$ pip install -r requirements.txt
+
+```
+expenseBot/python 
+
+```
+$ python3 main_rsa.py
+```
+
