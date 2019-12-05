@@ -3,7 +3,7 @@ from sym_api_client_python.processors.message_formatter import MessageFormatter
 class Messages:
     def __init__(self, bot_id):
         self.finance_approval_message = dict(message = """<messageML>
-                                            <span><p>Your expense was approved, waiting on finance approval.</p></span>
+                                            <span><p>Your Expense was approved, waiting on finance approval.</p></span>
                                        </messageML>""".format(bot_id))
 
         self.help_message = dict(message = """<messageML>
