@@ -8,9 +8,11 @@ class Messages:
 
         self.help_message = dict(message = """<messageML>
                                     <h3>Use ExpenseBot to create, update, and submit an expense form using Symphony Elements</h3>
+                                        <ul>
                                         <li><mention uid="{0}"/> help</li>
                                         <li><mention uid="{0}"/> create</li>
                                         <li><mention uid="{0}"/> end</li>
+                                        </ul>
                                 </messageML>
                     """.format(bot_id))
 
