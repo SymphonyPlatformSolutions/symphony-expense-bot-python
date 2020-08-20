@@ -38,19 +38,19 @@ class IMProcessor:
         commands = self.sym_message_parser.get_text(msg)
 
         if mentioned_users:
-            if mentioned_users[0] == self.bot_id and commands[0] == 'clear':
+            if mentioned_users[0] == self.bot_id and commands[1] == 'clear':
                 self.bot_client.get_message_client().send_msg(msg['stream']['streamId'], self.messages.clear_message)
 
-            elif mentioned_users[0] == self.bot_id and commands[0] == 'create':
+            elif mentioned_users[0] == self.bot_id and commands[1] == 'create':
                 self.handle_create_expense(msg['stream']['streamId'], msg['user'])
 
-            elif mentioned_users[0] == self.bot_id and commands[0] == 'upload' and commands[1] == 'receipt':
+            elif mentioned_users[0] == self.bot_id and commands[1] == 'upload' and commands[2] == 'receipt':
                 img_data = parse_attachment(msg, self.bot_client)
                 print(img_data)
                 save_image(self.bot_client, userId, img_data)
                 self.bot_client.get_message_client().send_msg(msg['stream']['streamId'], render_expense_approval_from_message(userId, './listeners/expense_approval_form/html/create_expense_approval_form.html'))
 
-            elif mentioned_users[0] == self.bot_id and commands[0] == 'end':
+            elif mentioned_users[0] == self.bot_id and commands[1] == 'end':
                 expenses = ExpenseReport.objects(owner=str(userId))
                 expenses.delete()
                 self.bot_client.get_message_client().send_msg(msg['stream']['streamId'], self.messages.instruction_message)
