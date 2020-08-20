@@ -67,7 +67,7 @@ class ActionProcessor:
         elif SymElementsParser().get_form_values(action)['action'] == 'send-finance':
             self.finance_id = SymElementsParser().get_form_values(action)['person-selector']
             self.send_finance_message = dict(message = """<messageML>
-                                                        <span><p>Thanks, I'll share this with <mention uid="{}"/>, and send your answer to <mention uid="349026222344902"/> </p></span>
+                                                        <span><p>Thanks, I'll share this with <mention uid="{}"/></p></span>
                                                    </messageML>""".format(self.finance_id[0]))
             self.bot_client.get_message_client().send_msg(SymElementsParser().get_stream_id(action), self.send_finance_message)
 
