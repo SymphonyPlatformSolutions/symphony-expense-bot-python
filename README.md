@@ -4,6 +4,8 @@ Demo expense report bot showcases how to use Symphony Elements and Amazon Textra
 
 Watch the demo video below:
 
+https://drive.google.com/file/d/1MvCYIAWjkwk5-0TbBIm6K4KCQPownU-V/view?usp=sharing
+
 [![Watch the video](resources/demo.png)](https://drive.google.com/file/d/1MvCYIAWjkwk5-0TbBIm6K4KCQPownU-V/view?usp=sharing)
 
 
