@@ -29,5 +29,5 @@ s3transfer==0.2.1
 six==1.12.0
 soupsieve==1.9.4
 sym-api-client-python==1.1.4
-urllib3==1.24.3
+urllib3==1.26.5
 yattag==1.12.2
